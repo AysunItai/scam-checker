@@ -7,7 +7,9 @@ import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/JsonLd";
 import {
   BRAND_BG,
   BRAND_COLOR,
+  BUILT_BY,
   KEYWORDS,
+  POWERED_BY,
   SITE_DESCRIPTION,
   SITE_DESCRIPTION_SHORT,
   SITE_NAME,
@@ -47,9 +49,13 @@ export const metadata: Metadata = {
   applicationName: SITE_NAME,
   generator: "Next.js",
   keywords: KEYWORDS,
-  authors: [{ name: SITE_NAME, url: SITE_URL }],
-  creator: SITE_NAME,
+  authors: [{ name: BUILT_BY.name, url: BUILT_BY.url }],
+  creator: BUILT_BY.name,
   publisher: SITE_NAME,
+  other: {
+    "designer": BUILT_BY.name,
+    "powered-by": POWERED_BY.name,
+  },
   category: "Safety",
   referrer: "origin-when-cross-origin",
   formatDetection: {

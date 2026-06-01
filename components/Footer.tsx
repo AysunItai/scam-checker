@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Logo } from "./Logo";
+import { BUILT_BY, POWERED_BY, SITE_NAME } from "@/lib/seo";
 
 export function Footer() {
   return (
@@ -48,15 +49,52 @@ export function Footer() {
           </ul>
         </div>
       </div>
+
       <div className="border-t border-[color:var(--border)]">
         <div className="mx-auto max-w-6xl px-5 sm:px-8 py-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-[color:var(--muted-2)]">
-          <p>
+          <p className="max-w-2xl leading-5">
             This tool gives general guidance, not legal or financial advice. We never tell
             you a message is &quot;safe&quot;. When in doubt — verify with the official source.
           </p>
-          <p>© {new Date().getFullYear()} Is this a scam?</p>
+          <p>© {new Date().getFullYear()} {SITE_NAME}</p>
+        </div>
+      </div>
+
+      <div className="border-t border-[color:var(--border)]">
+        <div className="mx-auto max-w-6xl px-5 sm:px-8 py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-[11px] text-[color:var(--muted-2)]">
+          <p className="inline-flex flex-wrap items-center gap-x-2 gap-y-1">
+            <span>Built by</span>
+            <Attribution name={BUILT_BY.name} url={BUILT_BY.url} />
+            <span className="opacity-60">·</span>
+            <span>Powered by</span>
+            <Attribution name={POWERED_BY.name} url={POWERED_BY.url} />
+          </p>
+          <p className="inline-flex items-center gap-1.5 opacity-80">
+            <span className="h-1 w-1 rounded-full bg-[color:var(--accent)] animate-pulse-dot" />
+            Made with care
+          </p>
         </div>
       </div>
     </footer>
+  );
+}
+
+function Attribution({ name, url }: { name: string; url?: string }) {
+  if (!url) {
+    return (
+      <span className="text-[color:var(--foreground)]/85 font-medium tracking-tight">
+        {name}
+      </span>
+    );
+  }
+  return (
+    <a
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="link-anim text-[color:var(--foreground)]/85 font-medium tracking-tight"
+    >
+      {name}
+    </a>
   );
 }

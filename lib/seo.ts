@@ -66,6 +66,16 @@ export const VERIFICATION = {
   } as Record<string, string | undefined>,
 };
 
+export const BUILT_BY = {
+  name: "ItaiWebSolutions",
+  url: process.env.NEXT_PUBLIC_BUILT_BY_URL || "https://itaiwebsolutions.com",
+};
+
+export const POWERED_BY = {
+  name: "ISOON AI tools",
+  url: process.env.NEXT_PUBLIC_POWERED_BY_URL || undefined,
+};
+
 export const ORG = {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -73,6 +83,11 @@ export const ORG = {
   url: SITE_URL,
   logo: `${SITE_URL}/icon.png`,
   sameAs: [] as string[],
+  creator: {
+    "@type": "Organization",
+    name: BUILT_BY.name,
+    url: BUILT_BY.url,
+  },
 };
 
 export const WEBSITE_SCHEMA = {
