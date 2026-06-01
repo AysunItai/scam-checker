@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
 import { GlowBg } from "@/components/GlowBg";
-import { SCAM_TYPES } from "@/lib/scamTypes";
+import { HOMEPAGE_FEATURES, SCAM_GUIDES } from "@/lib/scamGuides";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_TAGLINE } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -162,52 +162,106 @@ export default function Home() {
         </div>
       </section>
 
-      {/* COMMON SCAMS PEEK */}
-      <section className="relative">
+      {/* COMMON SCAMS PEOPLE CHECK */}
+      <section
+        aria-labelledby="home-guides-heading"
+        className="relative"
+      >
         <div className="mx-auto max-w-6xl px-5 sm:px-8 py-20 sm:py-28">
-          <div className="flex items-end justify-between flex-wrap gap-4">
-            <div>
-              <Reveal>
-                <p className="text-xs uppercase tracking-[0.18em] text-[color:var(--muted-2)]">
-                  Know the playbooks
-                </p>
-              </Reveal>
-              <Reveal delay={80}>
-                <h2 className="mt-3 text-[28px] sm:text-4xl md:text-5xl tracking-tight font-medium leading-[1.08]">
-                  Common scams,{" "}
-                  <span className="font-serif-display text-[color:var(--muted)]">in plain words.</span>
-                </h2>
-              </Reveal>
-            </div>
-            <Reveal delay={140}>
-              <Link href="/scams" className="link-anim text-sm text-[color:var(--foreground)]">
-                See all patterns →
-              </Link>
-            </Reveal>
-          </div>
+          <Reveal>
+            <p className="text-xs uppercase tracking-[0.18em] text-[color:var(--muted-2)]">
+              Scam guides
+            </p>
+          </Reveal>
+          <Reveal delay={80}>
+            <h2
+              id="home-guides-heading"
+              className="mt-3 max-w-3xl text-[28px] sm:text-4xl md:text-5xl tracking-tight font-medium leading-[1.08]"
+            >
+              Common scams{" "}
+              <span className="font-serif-display text-[color:var(--muted)]">
+                people check.
+              </span>
+            </h2>
+          </Reveal>
+          <Reveal delay={140}>
+            <p className="mt-5 max-w-2xl text-[16px] sm:text-[17px] leading-8 text-[color:var(--muted)]">
+              A short, plain-language explainer for each — with a real example,
+              the warning signs, and what to do before you reply or send
+              anything.
+            </p>
+          </Reveal>
 
-          <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {SCAM_TYPES.slice(0, 3).map((s, i) => (
-              <Reveal key={s.id} delay={100 + i * 100}>
-                <Link href={`/scams#${s.id}`} className="card group h-full block">
-                  <p className="text-xs uppercase tracking-[0.14em] text-[color:var(--muted-2)]">
-                    {String(i + 1).padStart(2, "0")}
-                  </p>
-                  <h3 className="mt-1 text-xl font-medium tracking-tight">{s.title}</h3>
-                  <p className="mt-2 text-[15px] leading-7 text-[color:var(--muted)]">
-                    {s.short}
-                  </p>
-                  <span className="mt-4 inline-flex items-center gap-1.5 text-sm text-[color:var(--foreground)]">
-                    Read pattern
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:translate-x-0.5" aria-hidden>
-                      <path d="M5 12h14" />
-                      <path d="m12 5 7 7-7 7" />
-                    </svg>
-                  </span>
-                </Link>
-              </Reveal>
-            ))}
-          </div>
+          <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {HOMEPAGE_FEATURES.map((feature, i) => {
+              const guide = SCAM_GUIDES[feature.slug];
+              return (
+                <li key={feature.slug}>
+                  <Reveal delay={120 + i * 70}>
+                    <Link
+                      href={`/${feature.slug}`}
+                      aria-label={`Read the ${feature.label.toLowerCase()} guide`}
+                      className="card group relative h-full block"
+                    >
+                      <p className="text-xs uppercase tracking-[0.14em] text-[color:var(--muted-2)]">
+                        {guide.category}
+                      </p>
+                      <h3 className="mt-2 text-xl sm:text-[22px] font-medium tracking-tight leading-snug">
+                        {feature.label}
+                      </h3>
+                      <p className="mt-2.5 text-[15px] leading-7 text-[color:var(--muted)]">
+                        {feature.blurb}
+                      </p>
+                      <span className="mt-5 inline-flex items-center gap-1.5 text-sm text-[color:var(--foreground)]">
+                        Read the guide
+                        <svg
+                          width="14"
+                          height="14"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="transition-transform group-hover:translate-x-0.5"
+                          aria-hidden
+                        >
+                          <path d="M5 12h14" />
+                          <path d="m12 5 7 7-7 7" />
+                        </svg>
+                      </span>
+                    </Link>
+                  </Reveal>
+                </li>
+              );
+            })}
+          </ul>
+
+          <Reveal delay={120 + HOMEPAGE_FEATURES.length * 70 + 80}>
+            <div className="mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-3">
+              <Link href="/scams" className="btn-ghost">
+                View all scam guides
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden
+                >
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+              </Link>
+              <p className="text-xs text-[color:var(--muted-2)] sm:ml-2">
+                One page per scam, no fluff — just the example, the signs, and
+                what to do.
+              </p>
+            </div>
+          </Reveal>
         </div>
       </section>
 

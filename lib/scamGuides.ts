@@ -659,6 +659,57 @@ export const SCAM_GUIDES: Record<ScamGuideSlug, ScamGuide> = {
   },
 };
 
+/**
+ * The six guides we feature on the homepage. Hand-curated, in order.
+ * Each has a tight card-friendly label and a one-sentence blurb so the
+ * homepage stays calm and scannable. Keeping the source of truth here
+ * means we can swap the lineup in one place.
+ */
+export interface HomepageFeature {
+  slug: ScamGuideSlug;
+  label: string;
+  blurb: string;
+}
+
+export const HOMEPAGE_FEATURES: HomepageFeature[] = [
+  {
+    slug: "pay-fee-to-receive-money-scam",
+    label: "Pay a fee to receive money",
+    blurb:
+      "If they ask you to pay first to release a bigger amount — don't.",
+  },
+  {
+    slug: "fake-bank-call",
+    label: "Fake bank call",
+    blurb:
+      "Real banks never ask for codes, passwords, or to install an app.",
+  },
+  {
+    slug: "otp-code-scam",
+    label: "OTP / security code scam",
+    blurb:
+      "Never share the 6-digit code — not even with someone from “your bank.”",
+  },
+  {
+    slug: "whatsapp-scam",
+    label: "WhatsApp scam",
+    blurb:
+      "“Hi mum, new number” and easy job offers are scripts, not coincidences.",
+  },
+  {
+    slug: "package-delivery-fee-scam",
+    label: "Package delivery fee scam",
+    blurb:
+      "That tiny “customs fee” link is a phishing trap dressed as a courier.",
+  },
+  {
+    slug: "fake-job-task-scam",
+    label: "Fake job task scam",
+    blurb:
+      "If a job asks you to deposit money to unlock earnings, it isn't a job.",
+  },
+];
+
 export function allGuideSlugs(): ScamGuideSlug[] {
   return Object.keys(SCAM_GUIDES) as ScamGuideSlug[];
 }
