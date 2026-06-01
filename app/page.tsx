@@ -1,7 +1,18 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
 import { GlowBg } from "@/components/GlowBg";
 import { SCAM_TYPES } from "@/lib/scamTypes";
+import { SITE_DESCRIPTION, SITE_NAME, SITE_TAGLINE } from "@/lib/seo";
+
+export const metadata: Metadata = {
+  title: {
+    absolute: `${SITE_NAME} — ${SITE_TAGLINE}`,
+  },
+  description: SITE_DESCRIPTION,
+  alternates: { canonical: "/" },
+  openGraph: { url: "/", title: `${SITE_NAME} — ${SITE_TAGLINE}` },
+};
 
 export default function Home() {
   return (
@@ -18,7 +29,7 @@ export default function Home() {
           </Reveal>
 
           <Reveal delay={80}>
-            <h1 className="mt-6 max-w-4xl text-[42px] sm:text-[68px] lg:text-[84px] leading-[1.02] tracking-[-0.025em] font-medium">
+            <h1 className="mt-6 max-w-4xl text-[36px] sm:text-[56px] md:text-[68px] lg:text-[84px] leading-[1.04] sm:leading-[1.02] tracking-[-0.025em] font-medium">
               Not sure if a message or call
               <br className="hidden sm:block" />{" "}
               <span className="font-serif-display text-[color:var(--foreground)]">is a scam?</span>{" "}
@@ -86,7 +97,7 @@ export default function Home() {
             </p>
           </Reveal>
           <Reveal delay={80}>
-            <h2 className="mt-3 max-w-3xl text-3xl sm:text-5xl tracking-tight font-medium leading-[1.05]">
+            <h2 className="mt-3 max-w-3xl text-[28px] sm:text-4xl md:text-5xl tracking-tight font-medium leading-[1.08]">
               Three quiet questions.{" "}
               <span className="font-serif-display text-[color:var(--muted)]">One honest answer.</span>
             </h2>
@@ -121,7 +132,7 @@ export default function Home() {
                 </p>
               </Reveal>
               <Reveal delay={80}>
-                <h2 className="mt-3 text-3xl sm:text-4xl tracking-tight font-medium leading-[1.1]">
+                <h2 className="mt-3 text-[28px] sm:text-3xl md:text-4xl tracking-tight font-medium leading-[1.12]">
                   The patterns scammers always reuse.
                 </h2>
               </Reveal>
@@ -162,7 +173,7 @@ export default function Home() {
                 </p>
               </Reveal>
               <Reveal delay={80}>
-                <h2 className="mt-3 text-3xl sm:text-5xl tracking-tight font-medium leading-[1.05]">
+                <h2 className="mt-3 text-[28px] sm:text-4xl md:text-5xl tracking-tight font-medium leading-[1.08]">
                   Common scams,{" "}
                   <span className="font-serif-display text-[color:var(--muted)]">in plain words.</span>
                 </h2>
@@ -210,7 +221,7 @@ export default function Home() {
             </p>
           </Reveal>
           <Reveal delay={80}>
-            <h2 className="mt-4 text-4xl sm:text-6xl tracking-tight font-medium leading-[1.05]">
+            <h2 className="mt-4 text-[32px] sm:text-5xl md:text-6xl tracking-tight font-medium leading-[1.08]">
               No real institution will ever{" "}
               <span className="font-serif-display text-[color:var(--accent)]">
                 hurry you

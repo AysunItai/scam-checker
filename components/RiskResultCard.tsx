@@ -97,7 +97,7 @@ export function RiskResultCard({
   return (
     <div ref={cardRef} className="grid gap-6 lg:grid-cols-[1.4fr_1fr]">
       {/* Main result */}
-      <div className={`relative overflow-hidden rounded-3xl border ${s.border} ${s.bg} p-7 sm:p-9`}>
+      <div className={`relative overflow-hidden rounded-3xl border ${s.border} ${s.bg} p-6 sm:p-9`}>
         <div className="flex items-center gap-3">
           <span
             className="inline-flex h-9 w-9 items-center justify-center rounded-full"
@@ -109,7 +109,7 @@ export function RiskResultCard({
             Risk level
           </span>
         </div>
-        <h1 className="mt-4 text-3xl sm:text-5xl font-medium tracking-tight leading-[1.05]">
+        <h1 className="mt-4 text-[28px] sm:text-4xl md:text-5xl font-medium tracking-tight leading-[1.08]">
           {result.title}
         </h1>
         <p className="mt-3 max-w-xl text-[15px] sm:text-base leading-7 text-[color:var(--foreground)]/85">

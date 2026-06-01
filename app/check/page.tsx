@@ -2,10 +2,24 @@ import { Reveal } from "@/components/Reveal";
 import { ScamCheckForm } from "@/components/ScamCheckForm";
 import { DisclaimerBox } from "@/components/DisclaimerBox";
 
-export const metadata = {
-  title: "Check a message — Is this a scam?",
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Check a message",
   description:
-    "Answer a few quick questions and we'll tell you whether the message you received shows scam warning signs.",
+    "Answer four quick questions and find out if the message or call you received shows scam warning signs. Free, private, no account required.",
+  alternates: { canonical: "/check" },
+  openGraph: {
+    title: "Check a message — Is this a scam?",
+    description:
+      "Answer four quick questions and find out if the message you received shows scam warning signs.",
+    url: "/check",
+  },
+  twitter: {
+    title: "Check a message — Is this a scam?",
+    description:
+      "Answer four quick questions. Get a clear read on scam risk.",
+  },
 };
 
 export default function CheckPage() {
@@ -19,7 +33,7 @@ export default function CheckPage() {
           </span>
         </Reveal>
         <Reveal delay={80}>
-          <h1 className="mt-5 text-4xl sm:text-6xl tracking-tight font-medium leading-[1.05]">
+          <h1 className="mt-5 text-[32px] sm:text-5xl md:text-6xl tracking-tight font-medium leading-[1.08]">
             Let&apos;s look at it{" "}
             <span className="font-serif-display text-[color:var(--muted)]">together.</span>
           </h1>

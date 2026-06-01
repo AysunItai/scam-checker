@@ -1,17 +1,32 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/JsonLd";
+import {
+  BRAND_BG,
+  BRAND_COLOR,
+  KEYWORDS,
+  SITE_DESCRIPTION,
+  SITE_DESCRIPTION_SHORT,
+  SITE_NAME,
+  SITE_TAGLINE,
+  SITE_URL,
+  TWITTER_HANDLE,
+  VERIFICATION,
+} from "@/lib/seo";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const instrumentSerif = Instrument_Serif({
@@ -19,28 +34,88 @@ const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
   weight: "400",
   style: ["normal", "italic"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Is this a scam? — Check before you pay",
-  description:
-    "Paste a suspicious message or describe a phone call. We look for scam warning signs and tell you what to verify before sending money or sharing details.",
-  applicationName: "Is this a scam?",
-  authors: [{ name: "Is this a scam?" }],
-  keywords: [
-    "scam checker",
-    "fraud detector",
-    "phishing check",
-    "WhatsApp scam",
-    "phone scam",
-    "is this a scam",
-  ],
-  openGraph: {
-    title: "Is this a scam? — Check before you pay",
-    description:
-      "A calm second opinion before you send money or share details with strangers.",
-    type: "website",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: `${SITE_NAME} — ${SITE_TAGLINE}`,
+    template: `%s · ${SITE_NAME}`,
   },
+  description: SITE_DESCRIPTION,
+  applicationName: SITE_NAME,
+  generator: "Next.js",
+  keywords: KEYWORDS,
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  category: "Safety",
+  referrer: "origin-when-cross-origin",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  alternates: {
+    canonical: "/",
+    languages: {
+      "en-US": "/",
+      "x-default": "/",
+    },
+  },
+  openGraph: {
+    type: "website",
+    siteName: SITE_NAME,
+    title: `${SITE_NAME} — ${SITE_TAGLINE}`,
+    description: SITE_DESCRIPTION_SHORT,
+    url: SITE_URL,
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: TWITTER_HANDLE,
+    creator: TWITTER_HANDLE,
+    title: `${SITE_NAME} — ${SITE_TAGLINE}`,
+    description: SITE_DESCRIPTION_SHORT,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  verification: {
+    google: VERIFICATION.google,
+    yandex: VERIFICATION.yandex,
+    other: Object.fromEntries(
+      Object.entries(VERIFICATION.other).filter(([, v]) => Boolean(v)),
+    ) as Record<string, string>,
+  },
+  appleWebApp: {
+    capable: true,
+    title: SITE_NAME,
+    statusBarStyle: "black-translucent",
+  },
+  manifest: "/manifest.webmanifest",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: "cover",
+  colorScheme: "light dark",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: BRAND_BG },
+    { media: "(prefers-color-scheme: dark)", color: BRAND_COLOR },
+  ],
 };
 
 export default function RootLayout({
@@ -54,8 +129,18 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <OrganizationJsonLd />
+        <WebSiteJsonLd />
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:rounded-full focus:bg-[color:var(--foreground)] focus:text-[color:var(--background)] focus:px-4 focus:py-2 focus:text-sm"
+        >
+          Skip to content
+        </a>
         <Header />
-        <main className="flex-1">{children}</main>
+        <main id="main" className="flex-1">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

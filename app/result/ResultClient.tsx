@@ -115,7 +115,7 @@ export function ResultClient() {
         <p className="text-xs uppercase tracking-[0.16em] text-[color:var(--muted-2)]">
           Remember
         </p>
-        <p className="mt-3 text-2xl sm:text-3xl tracking-tight font-medium leading-[1.15]">
+        <p className="mt-3 text-xl sm:text-2xl md:text-3xl tracking-tight font-medium leading-[1.18]">
           We do not say <span className="font-serif-display italic">&quot;safe.&quot;</span>{" "}
           <span className="text-[color:var(--muted)]">
             Even a lower risk result is not a green light.

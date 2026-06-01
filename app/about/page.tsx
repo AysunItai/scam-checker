@@ -1,9 +1,23 @@
 import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
 
-export const metadata = {
-  title: "About — Is this a scam?",
-  description: "Why we built this tool and what it is — and isn't.",
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "Why we built a scam checker, what it is — and what it isn't. A free, private second opinion in the moments that matter most.",
+  alternates: { canonical: "/about" },
+  openGraph: {
+    title: "About — Is this a scam?",
+    description:
+      "Built to interrupt the moment before it's too late. Free, private, no account.",
+    url: "/about",
+  },
+  twitter: {
+    title: "About — Is this a scam?",
+    description: "Built to interrupt the moment before it's too late.",
+  },
 };
 
 export default function AboutPage() {
@@ -18,7 +32,7 @@ export default function AboutPage() {
         </Reveal>
 
         <Reveal delay={80}>
-          <h1 className="mt-5 text-4xl sm:text-6xl tracking-tight font-medium leading-[1.05]">
+          <h1 className="mt-5 text-[30px] sm:text-5xl md:text-6xl tracking-tight font-medium leading-[1.08]">
             Built to interrupt the moment{" "}
             <span className="font-serif-display text-[color:var(--muted)]">before it&apos;s too late.</span>
           </h1>

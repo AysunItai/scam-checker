@@ -1,36 +1,152 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Is this a scam?
 
-## Getting Started
+A free, private scam checker. Users paste a suspicious message or describe a phone call, and the app tells them whether it shows scam warning signs — and what to verify before they pay.
 
-First, run the development server:
+Built with **Next.js 16 (App Router)**, **React 19**, and **Tailwind CSS v4**. No database, no analytics, no API keys required. Everything happens in the browser.
+
+---
+
+## Quick start
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Requires Node.js 20.9+
+npm install
+cp .env.example .env.local        # then fill in NEXT_PUBLIC_SITE_URL etc.
+npm run dev                       # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+```bash
+npm run build && npm start        # production build
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project structure
 
-## Learn More
+```
+app/
+  layout.tsx                root layout — metadata, viewport, JSON-LD
+  page.tsx                  homepage
+  check/page.tsx            4-step form
+  result/page.tsx           reads sessionStorage, renders risk read
+  scams/page.tsx            common scam playbooks
+  about/page.tsx            mission + recovery steps
+  icon.tsx                  generated 64×64 favicon
+  apple-icon.tsx            generated 180×180 apple touch icon
+  opengraph-image.tsx       generated 1200×630 OG card (root)
+  twitter-image.tsx         generated 1200×630 Twitter card (root)
+  {route}/opengraph-image.tsx   per-route OG cards
+  sitemap.ts                programmatic XML sitemap
+  robots.ts                 programmatic robots.txt
+  manifest.ts               PWA web manifest
+components/
+  Header, Footer, Logo, Reveal, GlowBg, DisclaimerBox
+  ScamCheckForm             4-step client form
+  RiskResultCard            result card + reasons + side panel
+  ShareToTrustedPerson      WhatsApp / SMS / Email / Copy share
+  ScamTypeCard              common scam pattern card
+  JsonLd                    Organization / WebSite / FAQ / Breadcrumb / ItemList
+  og/OgFrame                shared OG layout
+lib/
+  seo.ts                    single source of truth for SEO config
+  types.ts, options.ts      check input shape + labels
+  riskEngine.ts             rule-based risk evaluator
+  scamTypes.ts              scam-pattern catalogue
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## SEO checklist (already wired up)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Asset | Where | Notes |
+| --- | --- | --- |
+| Title template | `app/layout.tsx` | `%s · Is this a scam?` |
+| Canonical URLs | Per page via `alternates.canonical` | |
+| Description | Per page | Targeting high-intent scam keywords |
+| OG image | `app/opengraph-image.tsx` + per-route | 1200×630, dynamically rendered, cached forever |
+| Twitter card | `app/twitter-image.tsx` + per-route | `summary_large_image` |
+| Favicon / Apple icon | `app/icon.tsx` + `app/apple-icon.tsx` | Custom brand mark, no Vercel logo |
+| Sitemap | `/sitemap.xml` | `app/sitemap.ts` |
+| Robots | `/robots.txt` | Disallows `/result` (private user data) |
+| Web manifest | `/manifest.webmanifest` | PWA-installable, shortcuts to `/check` and `/scams` |
+| Theme color | `app/layout.tsx` viewport | Light + dark variants |
+| Skip-to-content link | `app/layout.tsx` | Accessibility |
+| JSON-LD: Organization | Site-wide | Search engines understand the brand |
+| JSON-LD: WebSite + SearchAction | Site-wide | Eligible for Google sitelinks search box |
+| JSON-LD: FAQPage | `/scams` | Eligible for rich FAQ snippets in SERPs |
+| JSON-LD: ItemList | `/scams` | Catalog of scam types |
+| JSON-LD: BreadcrumbList | `/scams` | Pretty breadcrumb in SERPs |
+| Security headers | `next.config.ts` | HSTS, XFO, Permissions-Policy, etc. |
+| `noindex` on result | `app/result/page.tsx` | Never indexes user input |
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Setting up Google Search Console
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Deploy the site (Vercel works out of the box — see below).
+2. In **Google Search Console**: add your domain as a **URL prefix property** using the full `https://yourdomain.com`.
+3. Choose **HTML tag** verification.
+4. Copy ONLY the `content` value from the meta tag (the part inside the quotes after `content=`).
+5. In Vercel → Project → **Environment Variables**, add:
+   ```
+   NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=YOUR_TOKEN_HERE
+   ```
+6. Redeploy.
+7. Click **Verify** in Search Console.
+8. Submit the sitemap: in Search Console → **Sitemaps** → enter `sitemap.xml`.
+
+Repeat with `NEXT_PUBLIC_BING_SITE_VERIFICATION` for Bing Webmaster Tools and `NEXT_PUBLIC_YANDEX_VERIFICATION` for Yandex.
+
+---
+
+## Deploy to Vercel
+
+```bash
+npx vercel
+```
+
+Set the following environment variables in the Vercel dashboard:
+
+```
+NEXT_PUBLIC_SITE_URL              https://yourdomain.com   (required)
+NEXT_PUBLIC_SITE_NAME             Is this a scam?
+NEXT_PUBLIC_TWITTER_HANDLE        @yourhandle
+NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION   <verification token>
+```
+
+> **Important:** `NEXT_PUBLIC_SITE_URL` must match your deployed domain exactly. The OG image, sitemap, canonical URLs, and JSON-LD all rely on it.
+
+---
+
+## Verifying SEO is working
+
+After deploy:
+
+| Check | URL |
+| --- | --- |
+| OG image renders | `https://yourdomain.com/opengraph-image` |
+| Sitemap | `https://yourdomain.com/sitemap.xml` |
+| Robots | `https://yourdomain.com/robots.txt` |
+| Manifest | `https://yourdomain.com/manifest.webmanifest` |
+| Rich result preview | https://search.google.com/test/rich-results |
+| OG / Twitter preview | https://www.opengraph.xyz/ · https://cards-dev.twitter.com/validator |
+| Lighthouse | Chrome DevTools → Lighthouse → run on production URL |
+
+---
+
+## Customising the risk engine
+
+All rules live in `lib/riskEngine.ts`. Two layers:
+
+1. **Pattern-matched scoring** over the pasted text (regex hits add points).
+2. **Hard-high overrides** that force `high` regardless of score (OTP requested, gift cards, crypto, AnyDesk, "money waiting + pay first", "keep it secret + send money"…).
+
+Edit the `KNOWN_PATTERNS` array to add new "matched playbook" labels for the result page.
+
+To add a new scam playbook to `/scams`, append to `lib/scamTypes.ts`.
+
+---
+
+## License
+
+Use it. Improve it. Share it. Make scams harder to run.

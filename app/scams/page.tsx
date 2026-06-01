@@ -3,16 +3,60 @@ import { Reveal } from "@/components/Reveal";
 import { GlowBg } from "@/components/GlowBg";
 import { ScamTypeCard } from "@/components/ScamTypeCard";
 import { SCAM_TYPES } from "@/lib/scamTypes";
+import {
+  BreadcrumbJsonLd,
+  FaqJsonLd,
+  ScamCatalogJsonLd,
+} from "@/components/JsonLd";
 
-export const metadata = {
-  title: "Common scams — Is this a scam?",
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Common scams",
   description:
-    "The playbooks scammers reuse — fake bank calls, money-waiting fees, delivery links, romance scams, and more. Recognise them before they reach someone you love.",
+    "Fake bank calls, money-waiting fees, delivery scams, romance scams, fake investment groups, government impersonation — the seven scam playbooks scammers reuse, explained in plain words with the warning signs to look for.",
+  alternates: { canonical: "/scams" },
+  keywords: [
+    "common scams",
+    "phone scam types",
+    "WhatsApp scams",
+    "fake bank call",
+    "advance fee scam",
+    "money waiting scam",
+    "delivery fee scam",
+    "romance scam",
+    "investment scam",
+    "government impersonation scam",
+  ],
+  openGraph: {
+    title: "Common scams — the same playbooks, on repeat",
+    description:
+      "Seven scam patterns scammers reuse. Recognise them before they reach someone you love.",
+    url: "/scams",
+  },
+  twitter: {
+    title: "Common scams — the same playbooks, on repeat",
+    description:
+      "Seven scam patterns scammers reuse, explained in plain words.",
+  },
 };
 
 export default function ScamsPage() {
   return (
     <div className="relative">
+      <ScamCatalogJsonLd />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", href: "/" },
+          { name: "Common scams", href: "/scams" },
+        ]}
+      />
+      <FaqJsonLd
+        questions={SCAM_TYPES.map((s) => ({
+          q: `What is the ${s.title.toLowerCase()}?`,
+          a: `${s.body} Warning signs: ${s.signs.join("; ")}.`,
+        }))}
+      />
       <section className="relative overflow-hidden border-b border-[color:var(--border)]">
         <GlowBg variant="cool" />
         <div className="relative mx-auto max-w-6xl px-5 sm:px-8 pt-16 sm:pt-24 pb-16">
@@ -23,7 +67,7 @@ export default function ScamsPage() {
             </span>
           </Reveal>
           <Reveal delay={80}>
-            <h1 className="mt-5 text-4xl sm:text-6xl tracking-tight font-medium leading-[1.05] max-w-4xl">
+            <h1 className="mt-5 text-[32px] sm:text-5xl md:text-6xl tracking-tight font-medium leading-[1.08] max-w-4xl">
               The same playbooks,{" "}
               <span className="font-serif-display text-[color:var(--muted)]">on repeat.</span>
             </h1>
@@ -67,7 +111,7 @@ export default function ScamsPage() {
         <GlowBg variant="warm" />
         <div className="relative mx-auto max-w-4xl px-5 sm:px-8 py-24 text-center">
           <Reveal>
-            <h2 className="text-4xl sm:text-5xl tracking-tight font-medium leading-[1.05]">
+            <h2 className="text-[30px] sm:text-4xl md:text-5xl tracking-tight font-medium leading-[1.08]">
               Saw something familiar?{" "}
               <span className="font-serif-display text-[color:var(--muted)]">
                 Run the check.
