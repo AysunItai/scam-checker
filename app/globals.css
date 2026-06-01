@@ -122,6 +122,14 @@ h4,
   overflow-wrap: anywhere;
 }
 
+/* Line clamp utility (Tailwind v4 ships @plugin support but keep this safe-default) */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 /* Focus-visible ring */
 :where(button, a, [role="button"], input, textarea, select, summary):focus-visible {
   outline: 2px solid var(--ring);

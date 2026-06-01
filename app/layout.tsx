@@ -1,13 +1,16 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/JsonLd";
 import {
+  ANALYTICS_ENABLED,
   BRAND_BG,
   BRAND_COLOR,
   BUILT_BY,
+  GA_MEASUREMENT_ID,
   KEYWORDS,
   POWERED_BY,
   SITE_DESCRIPTION,
@@ -149,6 +152,9 @@ export default function RootLayout({
         </main>
         <Footer />
       </body>
+      {ANALYTICS_ENABLED && (
+        <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />
+      )}
     </html>
   );
 }

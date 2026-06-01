@@ -2,7 +2,7 @@
 
 A free, private scam checker. Users paste a suspicious message or describe a phone call, and the app tells them whether it shows scam warning signs — and what to verify before they pay.
 
-Built with **Next.js 16 (App Router)**, **React 19**, and **Tailwind CSS v4**. No database, no analytics, no API keys required. Everything happens in the browser.
+Built with **Next.js 16 (App Router)**, **React 19**, and **Tailwind CSS v4**. No database. Pasted message content stays in the browser; only standard Google Analytics page-view data is collected (production only).
 
 ---
 
@@ -112,6 +112,27 @@ NEXT_PUBLIC_SITE_URL              https://yourdomain.com   (required)
 NEXT_PUBLIC_SITE_NAME             Is this a scam?
 NEXT_PUBLIC_TWITTER_HANDLE        @yourhandle
 NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION   <verification token>
+NEXT_PUBLIC_GA_MEASUREMENT_ID     G-XXXXXXXXXX            (Google Analytics 4)
+```
+
+### Google Analytics 4
+
+Wired via `@next/third-parties/google` for lazy, non-blocking loading.
+
+- Reads `NEXT_PUBLIC_GA_MEASUREMENT_ID` (default: `G-DG4ZK0TDPM`).
+- **Only loads in production** (`NODE_ENV=production`) — your dev session won't pollute reports.
+- Page-view tracking is automatic for App Router navigation.
+- The Vercel deploy will pick this up the moment you set the env var.
+
+To fire custom events later:
+
+```ts
+import { sendGAEvent } from "@next/third-parties/google";
+
+sendGAEvent("event", "scam_check_submitted", {
+  promise_type: "money_waiting",
+  risk_level: "high",
+});
 ```
 
 > **Important:** `NEXT_PUBLIC_SITE_URL` must match your deployed domain exactly. The OG image, sitemap, canonical URLs, and JSON-LD all rely on it.

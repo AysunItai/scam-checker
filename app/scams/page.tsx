@@ -3,6 +3,7 @@ import { Reveal } from "@/components/Reveal";
 import { GlowBg } from "@/components/GlowBg";
 import { ScamTypeCard } from "@/components/ScamTypeCard";
 import { SCAM_TYPES } from "@/lib/scamTypes";
+import { SCAM_GUIDES, allGuideSlugs } from "@/lib/scamGuides";
 import {
   BreadcrumbJsonLd,
   FaqJsonLd,
@@ -104,6 +105,70 @@ export default function ScamsPage() {
               <ScamTypeCard scam={s} index={i} />
             </Reveal>
           ))}
+        </div>
+      </section>
+
+      {/* Detailed SEO landing pages */}
+      <section className="relative border-t border-[color:var(--border)] bg-[color:var(--surface-2)]">
+        <div className="mx-auto max-w-6xl px-5 sm:px-8 py-16 sm:py-20">
+          <div className="flex items-end justify-between flex-wrap gap-3">
+            <div>
+              <Reveal>
+                <p className="text-xs uppercase tracking-[0.18em] text-[color:var(--muted-2)]">
+                  Detailed guides
+                </p>
+              </Reveal>
+              <Reveal delay={80}>
+                <h2 className="mt-3 text-[26px] sm:text-3xl md:text-4xl tracking-tight font-medium leading-[1.12] max-w-3xl">
+                  One page per scam, with a real example and what to do.
+                </h2>
+              </Reveal>
+            </div>
+          </div>
+
+          <Reveal delay={140}>
+            <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {allGuideSlugs().map((slug, i) => {
+                const g = SCAM_GUIDES[slug];
+                return (
+                  <li key={slug}>
+                    <Link
+                      href={`/${slug}`}
+                      className="card group h-full block transition-transform hover:-translate-y-0.5"
+                    >
+                      <p className="text-xs uppercase tracking-[0.14em] text-[color:var(--muted-2)]">
+                        {String(i + 1).padStart(2, "0")} · {g.category}
+                      </p>
+                      <h3 className="mt-2 text-lg sm:text-xl tracking-tight font-medium leading-snug">
+                        {g.h1}
+                      </h3>
+                      <p className="mt-2 text-sm leading-6 text-[color:var(--muted)] line-clamp-3">
+                        {g.subhead}
+                      </p>
+                      <span className="mt-4 inline-flex items-center gap-1.5 text-sm text-[color:var(--foreground)]">
+                        Read the guide
+                        <svg
+                          width="14"
+                          height="14"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="transition-transform group-hover:translate-x-0.5"
+                          aria-hidden
+                        >
+                          <path d="M5 12h14" />
+                          <path d="m12 5 7 7-7 7" />
+                        </svg>
+                      </span>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </Reveal>
         </div>
       </section>
 

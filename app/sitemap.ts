@@ -1,9 +1,11 @@
 import type { MetadataRoute } from "next";
+import { allGuideSlugs } from "@/lib/scamGuides";
 import { SITE_URL } from "@/lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
-  return [
+
+  const core: MetadataRoute.Sitemap = [
     {
       url: `${SITE_URL}/`,
       lastModified: now,
@@ -29,4 +31,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.5,
     },
   ];
+
+  const guides: MetadataRoute.Sitemap = allGuideSlugs().map((slug) => ({
+    url: `${SITE_URL}/${slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: slug === "is-this-a-scam" ? 0.92 : 0.85,
+  }));
+
+  return [...core, ...guides];
 }

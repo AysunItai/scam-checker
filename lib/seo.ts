@@ -58,6 +58,15 @@ export const BRAND_COLOR = "#0b1220";
 export const BRAND_ACCENT = "#c2410c";
 export const BRAND_BG = "#fafaf7";
 
+// --- Analytics ---
+// Set NEXT_PUBLIC_GA_MEASUREMENT_ID="G-XXXXXXX" to enable Google Analytics 4.
+// Leave empty (or unset) to disable analytics entirely.
+export const GA_MEASUREMENT_ID =
+  process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-DG4ZK0TDPM";
+
+export const ANALYTICS_ENABLED =
+  Boolean(GA_MEASUREMENT_ID) && process.env.NODE_ENV === "production";
+
 export const VERIFICATION = {
   google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
   yandex: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION || undefined,
