@@ -73,7 +73,7 @@ export const BUILT_BY = {
 
 export const POWERED_BY = {
   name: "ISOON AI tools",
-  url: process.env.NEXT_PUBLIC_POWERED_BY_URL || undefined,
+  url: process.env.NEXT_PUBLIC_POWERED_BY_URL || "https://www.isoon.io/",
 };
 
 export const ORG = {
