@@ -13,12 +13,12 @@
 const stripTrailingSlash = (s: string) => s.replace(/\/+$/, "");
 
 export const SITE_URL = stripTrailingSlash(
-  process.env.NEXT_PUBLIC_SITE_URL || "https://isthisascam.app",
+  process.env.NEXT_PUBLIC_SITE_URL || "https://www.dontpayyet.com",
 );
 
-export const SITE_NAME = process.env.NEXT_PUBLIC_SITE_NAME || "Is this a scam?";
+export const SITE_NAME = process.env.NEXT_PUBLIC_SITE_NAME || "Don't Pay Yet";
 
-export const SITE_SHORT_NAME = "scam check";
+export const SITE_SHORT_NAME = "Don't Pay Yet";
 
 export const SITE_TAGLINE = "Check before you pay.";
 
