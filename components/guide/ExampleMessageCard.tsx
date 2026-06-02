@@ -1,49 +1,41 @@
-import type { ChannelKind, ExampleMessage } from "@/lib/scamGuides";
+import { useTranslations } from "next-intl";
+import type { ChannelKind } from "@/lib/scamGuides";
+import type { ExampleMessage } from "@/lib/guides/types";
 
-const CHANNEL_META: Record<
-  ChannelKind,
-  { label: string; icon: React.ReactNode }
-> = {
-  phone: {
-    label: "Phone call",
-    icon: <PhoneIcon />,
-  },
-  whatsapp: {
-    label: "WhatsApp",
-    icon: <WhatsAppIcon />,
-  },
-  sms: {
-    label: "SMS",
-    icon: <SmsIcon />,
-  },
-  email: {
-    label: "Email",
-    icon: <EmailIcon />,
-  },
-  website: {
-    label: "Website / pop-up",
-    icon: <GlobeIcon />,
-  },
-  social: {
-    label: "Social DM",
-    icon: <DmIcon />,
-  },
+const CHANNEL_ICONS: Record<ChannelKind, React.ReactNode> = {
+  phone: <PhoneIcon />,
+  whatsapp: <WhatsAppIcon />,
+  sms: <SmsIcon />,
+  email: <EmailIcon />,
+  website: <GlobeIcon />,
+  social: <DmIcon />,
+};
+
+const CHANNEL_LABEL_KEYS: Record<ChannelKind, string> = {
+  phone: "phone",
+  whatsapp: "whatsapp",
+  sms: "sms",
+  email: "email",
+  website: "website",
+  social: "social",
 };
 
 export function ExampleMessageCard({
   example,
+  channel,
 }: {
   example: ExampleMessage;
+  channel: ChannelKind;
 }) {
-  const meta = CHANNEL_META[example.channel];
+  const t = useTranslations("guides.common");
+  const tChannels = useTranslations("check.channels");
+  const channelLabel = tChannels(CHANNEL_LABEL_KEYS[channel]);
   return (
     <figure
       className="relative rounded-3xl border border-[color:var(--border)] bg-[color:var(--surface)] p-5 sm:p-7 shadow-[0_30px_60px_-40px_rgba(0,0,0,0.18)]"
-      aria-label="Example of this type of scam message"
+      aria-label={t("exampleTitle")}
     >
-      <figcaption className="sr-only">
-        Example of how this scam typically appears.
-      </figcaption>
+      <figcaption className="sr-only">{t("exampleTitle")}</figcaption>
 
       <header className="flex items-center justify-between gap-3">
         <div className="flex items-center gap-3 min-w-0">
@@ -51,18 +43,17 @@ export function ExampleMessageCard({
             aria-hidden
             className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[color:var(--surface-2)] border border-[color:var(--border)] text-[color:var(--foreground)]"
           >
-            {meta.icon}
+            {CHANNEL_ICONS[channel]}
           </span>
           <div className="min-w-0">
             <p className="truncate text-sm font-medium text-[color:var(--foreground)]">
               {example.sender}
             </p>
             <p className="text-[10px] uppercase tracking-[0.14em] text-[color:var(--muted-2)]">
-              {meta.label} · {example.timestamp}
+              {channelLabel} · {example.timestamp}
             </p>
           </div>
         </div>
-        <span className="chip text-[10px] shrink-0">incoming</span>
       </header>
 
       <div className="mt-5 space-y-2.5">
@@ -72,11 +63,7 @@ export function ExampleMessageCard({
       </div>
 
       <footer className="mt-5 flex flex-wrap items-center justify-between gap-2 text-[11px] text-[color:var(--muted-2)]">
-        <span>Example of how this scam appears in real life.</span>
-        <span className="inline-flex items-center gap-1.5">
-          <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--accent)]" />
-          Not a real conversation
-        </span>
+        <span>{t("exampleNote")}</span>
       </footer>
     </figure>
   );

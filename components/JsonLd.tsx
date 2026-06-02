@@ -1,5 +1,4 @@
-import { ORG, SITE_NAME, SITE_URL, WEBSITE_SCHEMA } from "@/lib/seo";
-import { SCAM_TYPES } from "@/lib/scamTypes";
+import { ORG, SITE_URL, WEBSITE_SCHEMA } from "@/lib/seo";
 
 interface JsonLdProps {
   data: Record<string, unknown> | Record<string, unknown>[];
@@ -68,19 +67,25 @@ export function BreadcrumbJsonLd({
   );
 }
 
-export function ScamCatalogJsonLd() {
+export function ScamCatalogJsonLd({
+  name,
+  items,
+}: {
+  name: string;
+  items: { name: string; description: string; slug: string }[];
+}) {
   return (
     <JsonLd
       data={{
         "@context": "https://schema.org",
         "@type": "ItemList",
-        name: `Common scams — ${SITE_NAME}`,
-        itemListElement: SCAM_TYPES.map((s, i) => ({
+        name,
+        itemListElement: items.map((s, i) => ({
           "@type": "ListItem",
           position: i + 1,
-          name: s.title,
-          description: s.short,
-          url: `${SITE_URL}/scams#${s.id}`,
+          name: s.name,
+          description: s.description,
+          url: `${SITE_URL}/${s.slug}`,
         })),
       }}
     />

@@ -1,0 +1,319 @@
+{
+  "meta": {
+    "siteName": "Don't Pay Yet",
+    "tagline": "Pause before you pay. Verify before you trust.",
+    "siteDescriptionShort": "Paste a suspicious message or describe a call. We surface the warning signs and tell you what to do before sending money or sharing codes.",
+    "siteDescription": "A safety-first scam checker. Don't Pay Yet helps you spot fake bank calls, money-waiting scams, OTP theft, delivery scams, romance scams, and more — before you send money, share a code, or open a link."
+  },
+  "common": {
+    "skipToContent": "Skip to content",
+    "loading": "Loading…",
+    "readGuide": "Read the guide",
+    "readPattern": "Read pattern",
+    "viewAllGuides": "View all scam guides",
+    "seeAllPatterns": "See all patterns →",
+    "checkMessage": "Check a message",
+    "checkYourMessage": "Check your message",
+    "checkOwnMessage": "Check your own message →",
+    "browseScams": "Browse all scams",
+    "learnCommonScams": "Learn common scams",
+    "sendToTrusted": "Send to someone you trust",
+    "checkRisk": "Check risk",
+    "back": "Back",
+    "next": "Next",
+    "yes": "Yes",
+    "no": "No",
+    "or": "or"
+  },
+  "header": {
+    "navHome": "Home",
+    "navCheck": "Check",
+    "navScams": "Common scams",
+    "navAbout": "About",
+    "ctaCheck": "Check a message",
+    "languageMenuLabel": "Language"
+  },
+  "footer": {
+    "tagline": "Pause before you pay. Verify before you trust.",
+    "disclaimer": "This tool surfaces common scam warning signs to help you pause and verify. It is not a guarantee. It does not say anything is safe. If you have already sent money or shared a code, contact your bank immediately.",
+    "builtBy": "Built by",
+    "poweredBy": "Powered by",
+    "madeWithCare": "Made with care.",
+    "copyright": "© {year} {siteName}",
+    "rights": "All rights reserved."
+  },
+  "home": {
+    "eyebrow": "A calm second opinion.",
+    "h1Pre": "Not sure if a message",
+    "h1Mid": "or call",
+    "h1Post": "is a scam?",
+    "h1Accent": "Pause.",
+    "subhead": "Paste the message or describe what happened. We will look for scam warning signs and tell you what to verify — before you send money or share private details.",
+    "ctaPrimary": "Check a message",
+    "ctaSecondary": "Learn common scams",
+    "trust": {
+      "noAccount": "No account, no tracking.",
+      "freeAlways": "Free, always.",
+      "saferTogether": "Calmer when shared with someone you trust."
+    },
+    "howEyebrow": "How it works",
+    "howTitle": "Three calm steps. About a minute.",
+    "howIntro": "We never tell you something is safe. We tell you what looks risky and what to do before you act.",
+    "stepOneTitle": "Describe it",
+    "stepOneBody": "Paste the message or describe the call in your own words. Tell us how they contacted you, what they asked for, and what they promised.",
+    "stepTwoTitle": "Read the signs",
+    "stepTwoBody": "We surface the warning signs that match — the pressure, the pay-first pattern, the impersonation cues, the silence-please tactic.",
+    "stepThreeTitle": "Talk to someone",
+    "stepThreeBody": "Share the result with someone you trust in one tap. Many victims need a second person to slow the scam down before money or codes leave their hands.",
+    "redFlagsEyebrow": "Common warning signs",
+    "redFlagsTitle": "If you see two of these, slow down.",
+    "redFlags": [
+      "They asked you to pay a fee to receive money",
+      "They asked for an OTP, security code, or password",
+      "They asked you to buy gift cards or send crypto",
+      "They asked you to install a remote-access app",
+      "They contacted you unexpectedly and promised money",
+      "They told you to keep this secret",
+      "They pressured you to act now"
+    ],
+    "guidesEyebrow": "Scam guides",
+    "guidesTitle": "Common scams",
+    "guidesTitleAccent": "people check.",
+    "guidesIntro": "A short, plain-language explainer for each — with a real example, the warning signs, and what to do before you reply or send anything.",
+    "guidesNote": "One page per scam, no fluff — just the example, the signs, and what to do.",
+    "ctaEyebrow": "If you feel rushed — stop here.",
+    "ctaTitlePre": "No real institution will ever",
+    "ctaTitleAccent": "hurry you",
+    "ctaTitlePost": "into paying.",
+    "ctaSubhead": "Take two minutes. Run the check. Talk to one person you trust. That's all it takes to interrupt almost every scam.",
+    "ctaButtonPrimary": "Check a message",
+    "ctaButtonSecondary": "See common scams"
+  },
+  "homeFeatures": {
+    "pay-fee-to-receive-money-scam": {
+      "label": "Pay a fee to receive money",
+      "blurb": "If they ask you to pay first to release a bigger amount — don't."
+    },
+    "fake-bank-call": {
+      "label": "Fake bank call",
+      "blurb": "Real banks never ask for codes, passwords, or to install an app."
+    },
+    "otp-code-scam": {
+      "label": "OTP / security code scam",
+      "blurb": "Never share the 6-digit code — not even with someone from \u201Cyour bank.\u201D"
+    },
+    "whatsapp-scam": {
+      "label": "WhatsApp scam",
+      "blurb": "\u201CHi mum, new number\u201D and easy job offers are scripts, not coincidences."
+    },
+    "package-delivery-fee-scam": {
+      "label": "Package delivery fee scam",
+      "blurb": "That tiny \u201Ccustoms fee\u201D link is a phishing trap dressed as a courier."
+    },
+    "fake-job-task-scam": {
+      "label": "Fake job task scam",
+      "blurb": "If a job asks you to deposit money to unlock earnings, it isn't a job."
+    }
+  },
+  "check": {
+    "eyebrow": "Scam check",
+    "h1Pre": "Tell us what happened.",
+    "h1Accent": "We'll point out the signs.",
+    "subhead": "You don't have to be sure. Just describe what they said and how they reached you. We will tell you what to check before you do anything.",
+    "trustChips": {
+      "private": "Nothing leaves your device.",
+      "noAccount": "No account needed.",
+      "calm": "Calm, plain language."
+    },
+    "step": "Step {current} of {total}",
+    "q1Title": "What happened?",
+    "q1Hint": "Paste the message, the email, or describe the call in your own words.",
+    "q1Placeholder": "Example: Someone called and said I have €4,200 in unclaimed social insurance, but I need to send €200 as a processing fee first…",
+    "q2Title": "How did they contact you?",
+    "q3Title": "Did they ask for any of these?",
+    "q3Hint": "Pick everything that matches. The more cues, the clearer the picture.",
+    "q4Title": "What did they promise you?",
+    "submit": "Check risk",
+    "submitting": "Checking…",
+    "errorRequired": "Add a short description so we have something to read.",
+    "channels": {
+      "phone": "Phone call",
+      "whatsapp": "WhatsApp",
+      "sms": "SMS",
+      "email": "Email",
+      "social": "Social media",
+      "website": "Website",
+      "in-person": "In person",
+      "other": "Other"
+    },
+    "askedFor": {
+      "money": "Send money",
+      "giftcards": "Buy gift cards",
+      "crypto": "Send crypto",
+      "bank-details": "Share bank or card details",
+      "password": "Share a password",
+      "otp": "Share an OTP or security code",
+      "id": "Send ID or passport photos",
+      "link": "Click a link",
+      "install-app": "Install an app",
+      "secret": "Keep it secret",
+      "urgent": "Act urgently"
+    },
+    "promises": {
+      "prize": "Prize or lottery",
+      "money-waiting": "Money waiting",
+      "job": "Job",
+      "investment": "Investment profit",
+      "loan": "Loan",
+      "delivery": "Package delivery",
+      "bank": "Bank or security help",
+      "love": "Love or relationship",
+      "family": "Family emergency",
+      "government": "Government or tax issue",
+      "other": "Other"
+    }
+  },
+  "result": {
+    "eyebrow": "Your check",
+    "h1": "Here's what we read.",
+    "h1Accent": "And what to do next.",
+    "noInputTitle": "We don't have anything to read yet.",
+    "noInputBody": "Start with a short description of what happened. We'll point out the signs.",
+    "noInputCta": "Go to the check",
+    "readBackTitle": "What we read from your answers",
+    "readBackChannel": "Contacted via",
+    "readBackAskedFor": "They asked for",
+    "readBackPromise": "They promised",
+    "readBackNone": "—",
+    "matchedPattern": "This looks like a known pattern: {name}",
+    "reminderTitle": "One last reminder.",
+    "reminderBody": "We never say something is safe. We surface signs to help you pause and verify. If anything looks off, talk to one person you trust before sending money or sharing codes.",
+    "tryAgain": "Run another check",
+    "browseScams": "Browse common scams"
+  },
+  "risk": {
+    "levels": {
+      "high": {
+        "title": "High scam risk",
+        "summary": "Do not send money or share private information. This has strong scam warning signs."
+      },
+      "suspicious": {
+        "title": "Suspicious",
+        "summary": "Some details look risky. Verify independently before doing anything."
+      },
+      "unclear": {
+        "title": "Unclear",
+        "summary": "We cannot confirm anything from this. Do not pay or share sensitive information until you verify through an official source."
+      },
+      "low": {
+        "title": "Lower risk — but still verify",
+        "summary": "We did not find strong scam signs in what you described. That does not mean it is safe. Verify through official channels before sending money or sharing details."
+      }
+    },
+    "reasonsHeading": "What we read in your answers",
+    "whatToDoHeading": "What to do next",
+    "reasons": {
+      "payFirst": "They promised money but asked you to pay first. This is one of the strongest scam signals — no real institution does this.",
+      "otpRequest": "They asked for an OTP, security code, or password. No real bank, courier, or government agency will ever ask you to share one. Sharing it usually means losing the account.",
+      "giftcards": "They asked you to buy gift cards. Real bills, taxes, fees, and fines are never paid in gift cards.",
+      "crypto": "They asked you to send crypto. Once crypto leaves your wallet, it is almost impossible to recover.",
+      "remoteApp": "They asked you to install a remote-access app (like AnyDesk or TeamViewer). This gives them control of your screen and accounts.",
+      "secret": "They told you to keep it secret. Scams need silence. A second pair of eyes is what stops them.",
+      "urgent": "They pressured you to act now. Urgency is a tactic. Real institutions give you time.",
+      "bankCredentials": "They asked for your bank password or card PIN. Banks never ask for these — not by phone, not by message.",
+      "unexpectedMoney": "They contacted you unexpectedly and promised you money. Unsolicited \"good news\" is almost always a setup.",
+      "linkPlusUrgency": "They sent a link and pushed you to click quickly. Links plus urgency are a classic phishing pattern.",
+      "idPhotos": "They asked for ID or passport photos. These can be used for identity theft. Share only through verified, official channels.",
+      "patternPayFee": "What you described matches the \"pay a fee to receive money\" pattern. The promised money never arrives — the \"fee\" is the scam.",
+      "patternBank": "What you described matches the \"fake bank or security call\" pattern. Real banks block accounts on their side — they don't ask you to move money or share codes."
+    },
+    "actions": {
+      "doNotSend": "Do not send money. Do not share bank details, passwords, or security codes.",
+      "doNotInstall": "Do not install any app they recommend, and do not click links from them.",
+      "askTrusted": "Stop and talk to one person you trust before doing anything.",
+      "verifyOfficial": "Verify through an official source — the company's real website or a phone number you find yourself, never the one they gave you.",
+      "callBank": "If you already shared bank details, sent money, or installed an app: call your bank immediately and freeze cards. Then change passwords.",
+      "reportLocal": "Report it to your local police or national consumer protection line.",
+      "blockNumber": "Block the number or account and do not engage further. They will try again with a different angle."
+    },
+    "shareTitle": "Send the summary to someone you trust",
+    "shareBody": "A second pair of eyes is what stops most scams. One tap below.",
+    "shareIntro": "Hi, can you help me check this before I do anything?",
+    "shareMessageLabel": "What I received:",
+    "shareReasonsLabel": "The scam checker flagged this:",
+    "shareCloseQuestion": "Can you look at it with me before I send money or share anything?",
+    "shareWhatsapp": "WhatsApp",
+    "shareSms": "SMS",
+    "shareEmail": "Email",
+    "shareCopy": "Copy",
+    "shareCopied": "Copied",
+    "shareNative": "Share…",
+    "shareEmailSubject": "Quick check — does this look like a scam?"
+  },
+  "scams": {
+    "eyebrow": "Scam guide hub",
+    "h1Pre": "The same playbooks,",
+    "h1Accent": "on repeat.",
+    "subhead": "Eleven plain-language guides. Scammers change the names, the numbers, the stories. The structure almost never changes. Once you see the shape, you cannot unsee it.",
+    "allGuidesEyebrow": "All scam guides",
+    "allGuidesTitle": "One page per scam — with a real example, the signs, and what to do.",
+    "finalCtaTitle": "Saw something familiar?",
+    "finalCtaAccent": "Run the check.",
+    "finalCtaBody": "Paste what you received. We will tell you which patterns match — and what to do before sending anything."
+  },
+  "about": {
+    "eyebrow": "About",
+    "h1Pre": "A calm second opinion,",
+    "h1Accent": "before money leaves.",
+    "intro": "Don't Pay Yet is a safety-first scam checker. We do not pretend to know everything. We surface the warning signs in what you describe and tell you what to verify before you act. We never call anything safe.",
+    "principlesEyebrow": "How we think about this",
+    "principleOneTitle": "Pause first, verify always.",
+    "principleOneBody": "Every scam relies on speed. Slowing down for two minutes is the most powerful single thing you can do.",
+    "principleTwoTitle": "Plain language, never jargon.",
+    "principleTwoBody": "If a sentence here makes you feel stupid, the sentence is wrong. We rewrite until it feels human.",
+    "principleThreeTitle": "Talk to one person you trust.",
+    "principleThreeBody": "Many scams collapse the moment someone says it out loud to another person. We make sharing the result one tap.",
+    "recoveryEyebrow": "If money already left your account",
+    "recoveryIntro": "Move quickly but carefully. There is sometimes a window to stop a transfer or contain damage.",
+    "recoveryStep1": "Call your bank immediately. Freeze cards. Ask them to recall the transfer.",
+    "recoveryStep2": "Change passwords for email and any account they touched. Enable two-factor authentication.",
+    "recoveryStep3": "Report to your local police and to your national consumer protection or anti-fraud line.",
+    "recoveryStep4": "Do not pay anyone who promises to \u201Crecover\u201D your money for a fee. That is its own scam.",
+    "creditEyebrow": "Who made this",
+    "creditBody": "Don't Pay Yet was designed and built by {builtBy}, powered by {poweredBy}. We don't track you. We don't run ads. The check runs on your device — your description never leaves it."
+  },
+  "languageSwitcher": {
+    "label": "Language",
+    "current": "Current language: {language}",
+    "switchTo": "Switch to {language}"
+  },
+  "disclaimer": {
+    "title": "Before you go any further",
+    "body": "This is a second opinion, not a verdict. We never say a message is safe. If anything matches what you saw, slow down and verify before sending money or sharing codes."
+  },
+  "guides": {
+    "common": {
+      "exampleTitle": "An example message that fits this pattern",
+      "exampleNote": "Composed for illustration. Real ones look almost identical.",
+      "plainTitle": "What this scam is, in plain words",
+      "redFlagsTitle": "Warning signs",
+      "redFlagsIntro": "If two or more of these show up at once, slow down.",
+      "whatToDoTitle": "What to do now",
+      "whatToDoIntro": "Calm steps you can take in the next two minutes.",
+      "dontTitle": "Don't",
+      "doTitle": "Do",
+      "shareTitle": "Send this warning to someone",
+      "shareBody": "One tap — send the summary to a friend or family member who might be targeted next.",
+      "relatedTitle": "Related guides",
+      "relatedIntro": "Same playbook, different cover story.",
+      "ctaTitle": "Not sure yet?",
+      "ctaAccent": "Check the message before you reply.",
+      "ctaBody": "Paste what you received. We'll point out the signs and tell you what to verify — before you reply, click, or send anything.",
+      "ctaPrimary": "Check your message",
+      "ctaSecondary": "Browse all scams",
+      "back": "← All scam guides",
+      "exampleSender": "Sender",
+      "exampleTimestamp": "Received {time}"
+    }
+  }
+}

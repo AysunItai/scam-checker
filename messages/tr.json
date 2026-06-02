@@ -1,0 +1,319 @@
+{
+  "meta": {
+    "siteName": "Don't Pay Yet",
+    "tagline": "Ödemeden önce durun. Güvenmeden önce doğrulayın.",
+    "siteDescriptionShort": "Şüpheli bir mesajı yapıştırın ya da gelen aramayı anlatın. Uyarı sinyallerini gösteririz, para göndermeden veya kod paylaşmadan ne yapmanız gerektiğini söyleriz.",
+    "siteDescription": "Güvenlik öncelikli bir dolandırıcılık kontrol aracı. Don't Pay Yet; sahte banka aramaları, “bekleyen para” dolandırıcılıkları, OTP hırsızlığı, kargo dolandırıcılıkları, romantik dolandırıcılıklar ve daha fazlasını fark etmenize yardımcı olur — para göndermeden, kod paylaşmadan veya bir bağlantıya tıklamadan önce."
+  },
+  "common": {
+    "skipToContent": "İçeriğe atla",
+    "loading": "Yükleniyor…",
+    "readGuide": "Rehberi okuyun",
+    "readPattern": "Örüntüyü okuyun",
+    "viewAllGuides": "Tüm dolandırıcılık rehberleri",
+    "seeAllPatterns": "Tüm örüntüleri görün →",
+    "checkMessage": "Bir mesajı kontrol edin",
+    "checkYourMessage": "Mesajınızı kontrol edin",
+    "checkOwnMessage": "Kendi mesajınızı kontrol edin →",
+    "browseScams": "Yaygın dolandırıcılıklara göz atın",
+    "learnCommonScams": "Yaygın dolandırıcılıkları öğrenin",
+    "sendToTrusted": "Güvendiğiniz birine gönderin",
+    "checkRisk": "Riski kontrol edin",
+    "back": "Geri",
+    "next": "İleri",
+    "yes": "Evet",
+    "no": "Hayır",
+    "or": "veya"
+  },
+  "header": {
+    "navHome": "Anasayfa",
+    "navCheck": "Kontrol",
+    "navScams": "Yaygın dolandırıcılıklar",
+    "navAbout": "Hakkında",
+    "ctaCheck": "Bir mesajı kontrol edin",
+    "languageMenuLabel": "Dil"
+  },
+  "footer": {
+    "tagline": "Ödemeden önce durun. Güvenmeden önce doğrulayın.",
+    "disclaimer": "Bu araç, sizi durup doğrulamaya teşvik etmek için yaygın dolandırıcılık uyarı sinyallerini gösterir. Bir garanti değildir ve hiçbir şeyin güvenli olduğunu söylemez. Para gönderdiyseniz veya bir kod paylaştıysanız, hemen bankanızı arayın.",
+    "builtBy": "Yapan",
+    "poweredBy": "Güç veren",
+    "madeWithCare": "Özenle yapılmıştır.",
+    "copyright": "© {year} {siteName}",
+    "rights": "Tüm hakları saklıdır."
+  },
+  "home": {
+    "eyebrow": "Sakin bir ikinci görüş.",
+    "h1Pre": "Bir mesaj ya da",
+    "h1Mid": "arama",
+    "h1Post": "dolandırıcılık mı emin değil misiniz?",
+    "h1Accent": "Durun.",
+    "subhead": "Mesajı yapıştırın veya ne olduğunu anlatın. Dolandırıcılık uyarı sinyallerini ararız ve para göndermeden ya da kişisel bilgileri paylaşmadan önce neyi doğrulamanız gerektiğini söyleriz.",
+    "ctaPrimary": "Bir mesajı kontrol edin",
+    "ctaSecondary": "Yaygın dolandırıcılıkları öğrenin",
+    "trust": {
+      "noAccount": "Hesap yok, takip yok.",
+      "freeAlways": "Her zaman ücretsiz.",
+      "saferTogether": "Güvendiğiniz biriyle paylaşılınca daha sakin."
+    },
+    "howEyebrow": "Nasıl çalışır",
+    "howTitle": "Üç sakin adım. Yaklaşık bir dakika.",
+    "howIntro": "Size hiçbir şeyin güvenli olduğunu söylemeyiz. Riskli görüneni ve harekete geçmeden önce ne yapmanız gerektiğini söyleriz.",
+    "stepOneTitle": "Anlatın",
+    "stepOneBody": "Mesajı yapıştırın veya aramayı kendi sözlerinizle anlatın. Size nasıl ulaştıklarını, ne istediklerini ve ne vaat ettiklerini söyleyin.",
+    "stepTwoTitle": "Sinyalleri okuyun",
+    "stepTwoBody": "Eşleşen uyarı sinyallerini gösteririz — baskı, önce-öde örüntüsü, kimliğe bürünme ipuçları ve “kimseye söyleme” taktiği.",
+    "stepThreeTitle": "Birine danışın",
+    "stepThreeBody": "Sonucu güvendiğiniz biriyle tek dokunuşla paylaşın. Mağdurların çoğu, para veya kodlar ellerinden çıkmadan önce dolandırıcılığı yavaşlatacak ikinci bir kişiye ihtiyaç duyar.",
+    "redFlagsEyebrow": "Yaygın uyarı sinyalleri",
+    "redFlagsTitle": "İkisini aynı anda görüyorsanız, yavaşlayın.",
+    "redFlags": [
+      "Para almak için ücret ödemenizi istediler",
+      "OTP, güvenlik kodu veya parola istediler",
+      "Hediye kartı almanızı veya kripto göndermenizi istediler",
+      "Uzaktan erişim uygulaması yüklemenizi istediler",
+      "Beklenmedik şekilde ulaşıp para vaat ettiler",
+      "Bunu kimseye söylememenizi istediler",
+      "Hemen harekete geçmeniz için baskı yaptılar"
+    ],
+    "guidesEyebrow": "Dolandırıcılık rehberleri",
+    "guidesTitle": "İnsanların kontrol ettiği",
+    "guidesTitleAccent": "yaygın dolandırıcılıklar.",
+    "guidesIntro": "Her biri için sade bir açıklama — gerçek bir örnek, uyarı sinyalleri ve cevap vermeden ya da bir şey göndermeden önce yapmanız gerekenler.",
+    "guidesNote": "Her dolandırıcılık için tek sayfa — sadece örnek, sinyaller ve ne yapılmalı.",
+    "ctaEyebrow": "Acele ettiriliyor gibi hissediyorsanız — burada durun.",
+    "ctaTitlePre": "Hiçbir gerçek kurum sizi ödemeye",
+    "ctaTitleAccent": "asla aceleye getirmez",
+    "ctaTitlePost": ".",
+    "ctaSubhead": "İki dakika ayırın. Kontrolü yapın. Güvendiğiniz bir kişiyle konuşun. Neredeyse her dolandırıcılığı kesmek için bu yeterli.",
+    "ctaButtonPrimary": "Bir mesajı kontrol edin",
+    "ctaButtonSecondary": "Yaygın dolandırıcılıkları görün"
+  },
+  "homeFeatures": {
+    "pay-fee-to-receive-money-scam": {
+      "label": "Para almak için ücret ödemek",
+      "blurb": "Daha büyük bir tutarı serbest bırakmak için önce ödeme istiyorlarsa — ödemeyin."
+    },
+    "fake-bank-call": {
+      "label": "Sahte banka araması",
+      "blurb": "Gerçek bankalar asla kod, parola ya da uygulama yüklemenizi istemez."
+    },
+    "otp-code-scam": {
+      "label": "OTP / güvenlik kodu dolandırıcılığı",
+      "blurb": "6 haneli kodu asla paylaşmayın — “bankanızdan” arayan biriyle bile."
+    },
+    "whatsapp-scam": {
+      "label": "WhatsApp dolandırıcılığı",
+      "blurb": "“Anne, yeni numaram” ve kolay iş teklifleri tesadüf değil, bir senaryo."
+    },
+    "package-delivery-fee-scam": {
+      "label": "Kargo ücreti dolandırıcılığı",
+      "blurb": "O küçük “gümrük ücreti” bağlantısı kuryeye benzeyen bir oltalama tuzağıdır."
+    },
+    "fake-job-task-scam": {
+      "label": "Sahte görev / iş dolandırıcılığı",
+      "blurb": "Kazancınızı açmak için para yatırmanızı isteyen şey iş değildir."
+    }
+  },
+  "check": {
+    "eyebrow": "Dolandırıcılık kontrolü",
+    "h1Pre": "Bize ne olduğunu anlatın.",
+    "h1Accent": "Sinyalleri biz gösterelim.",
+    "subhead": "Emin olmak zorunda değilsiniz. Sadece size ne söylediklerini ve size nasıl ulaştıklarını anlatın. Bir şey yapmadan önce neyi kontrol etmeniz gerektiğini söyleriz.",
+    "trustChips": {
+      "private": "Hiçbir şey cihazınızdan çıkmaz.",
+      "noAccount": "Hesap gerekmez.",
+      "calm": "Sakin, sade bir dil."
+    },
+    "step": "{total} adımdan {current}.",
+    "q1Title": "Ne oldu?",
+    "q1Hint": "Mesajı yapıştırın, e-postayı kopyalayın veya aramayı kendi sözlerinizle anlatın.",
+    "q1Placeholder": "Örnek: Biri arayıp talep edilmemiş 4.200 TL sosyal güvenlik param olduğunu, ama önce 200 TL işlem ücreti göndermem gerektiğini söyledi…",
+    "q2Title": "Size nasıl ulaştılar?",
+    "q3Title": "Bunlardan herhangi birini istediler mi?",
+    "q3Hint": "Eşleşen her şeyi işaretleyin. Daha çok ipucu, daha net bir tablo.",
+    "q4Title": "Size ne vaat ettiler?",
+    "submit": "Riski kontrol edin",
+    "submitting": "Kontrol ediliyor…",
+    "errorRequired": "Okuyabilmemiz için kısa bir açıklama ekleyin.",
+    "channels": {
+      "phone": "Telefon araması",
+      "whatsapp": "WhatsApp",
+      "sms": "SMS",
+      "email": "E-posta",
+      "social": "Sosyal medya",
+      "website": "Web sitesi",
+      "in-person": "Yüz yüze",
+      "other": "Diğer"
+    },
+    "askedFor": {
+      "money": "Para göndermek",
+      "giftcards": "Hediye kartı almak",
+      "crypto": "Kripto göndermek",
+      "bank-details": "Banka veya kart bilgilerini paylaşmak",
+      "password": "Bir parola paylaşmak",
+      "otp": "Bir OTP veya güvenlik kodu paylaşmak",
+      "id": "Kimlik veya pasaport fotoğrafı göndermek",
+      "link": "Bir bağlantıya tıklamak",
+      "install-app": "Bir uygulama yüklemek",
+      "secret": "Bunu gizli tutmak",
+      "urgent": "Acil harekete geçmek"
+    },
+    "promises": {
+      "prize": "Ödül veya çekiliş",
+      "money-waiting": "Bekleyen para",
+      "job": "İş",
+      "investment": "Yatırım karı",
+      "loan": "Kredi",
+      "delivery": "Kargo teslimi",
+      "bank": "Banka veya güvenlik yardımı",
+      "love": "Aşk veya ilişki",
+      "family": "Aile acil durumu",
+      "government": "Resmi kurum veya vergi konusu",
+      "other": "Diğer"
+    }
+  },
+  "result": {
+    "eyebrow": "Kontrolünüz",
+    "h1": "İşte okuduğumuz.",
+    "h1Accent": "Ve şimdi ne yapmalı.",
+    "noInputTitle": "Henüz okuyacak bir şeyimiz yok.",
+    "noInputBody": "Ne olduğunun kısa bir açıklamasıyla başlayın. Sinyalleri göstereceğiz.",
+    "noInputCta": "Kontrol sayfasına gidin",
+    "readBackTitle": "Cevaplarınızdan okuduğumuz",
+    "readBackChannel": "İletişim kanalı",
+    "readBackAskedFor": "Ne istediler",
+    "readBackPromise": "Ne vaat ettiler",
+    "readBackNone": "—",
+    "matchedPattern": "Bilinen bir örüntüye benziyor: {name}",
+    "reminderTitle": "Son bir hatırlatma.",
+    "reminderBody": "Asla hiçbir şeyin güvenli olduğunu söylemeyiz. Sizi durup doğrulamaya teşvik eden sinyalleri gösteririz. Bir şey ters görünüyorsa, para göndermeden veya kod paylaşmadan önce güvendiğiniz bir kişiyle konuşun.",
+    "tryAgain": "Başka bir kontrol yapın",
+    "browseScams": "Yaygın dolandırıcılıklara göz atın"
+  },
+  "risk": {
+    "levels": {
+      "high": {
+        "title": "Yüksek dolandırıcılık riski",
+        "summary": "Para göndermeyin ve özel bilgi paylaşmayın. Bunda güçlü dolandırıcılık uyarı sinyalleri var."
+      },
+      "suspicious": {
+        "title": "Şüpheli",
+        "summary": "Bazı ayrıntılar riskli görünüyor. Bir şey yapmadan önce bağımsız olarak doğrulayın."
+      },
+      "unclear": {
+        "title": "Belirsiz",
+        "summary": "Buradan hiçbir şeyi doğrulayamayız. Resmi bir kaynaktan doğrulamadan ödeme yapmayın veya hassas bilgi paylaşmayın."
+      },
+      "low": {
+        "title": "Daha düşük risk — yine de doğrulayın",
+        "summary": "Anlattıklarınızda güçlü dolandırıcılık sinyalleri bulamadık. Bu güvenli olduğu anlamına gelmez. Para göndermeden veya bilgi paylaşmadan önce resmi kanallardan doğrulayın."
+      }
+    },
+    "reasonsHeading": "Cevaplarınızda okuduklarımız",
+    "whatToDoHeading": "Şimdi ne yapmalı",
+    "reasons": {
+      "payFirst": "Para vaat ettiler ama önce ödeme yapmanızı istediler. Bu en güçlü dolandırıcılık sinyallerinden biridir — gerçek hiçbir kurum bunu yapmaz.",
+      "otpRequest": "OTP, güvenlik kodu veya parola istediler. Hiçbir gerçek banka, kargo şirketi veya resmi kurum bunu paylaşmanızı asla istemez. Paylaşmak çoğu zaman hesabın kaybedilmesi demektir.",
+      "giftcards": "Hediye kartı almanızı istediler. Gerçek faturalar, vergiler, ücretler ve cezalar hiçbir zaman hediye kartı ile ödenmez.",
+      "crypto": "Kripto göndermenizi istediler. Kripto cüzdanınızdan çıktığında, geri alınması neredeyse imkânsızdır.",
+      "remoteApp": "Uzaktan erişim uygulaması (AnyDesk, TeamViewer gibi) yüklemenizi istediler. Bu, ekranınız ve hesaplarınız üzerinde kontrol verir.",
+      "secret": "Bunu kimseye söylememenizi istediler. Dolandırıcılıkların sessizliğe ihtiyacı vardır. İkinci bir göz onları durdurur.",
+      "urgent": "Hemen harekete geçmeniz için baskı yaptılar. Aciliyet bir taktiktir. Gerçek kurumlar size zaman tanır.",
+      "bankCredentials": "Banka parolanızı veya kart PIN'inizi istediler. Bankalar bunları asla istemez — ne telefonla ne mesajla.",
+      "unexpectedMoney": "Beklenmedik şekilde ulaşıp para vaat ettiler. Talep edilmemiş “iyi haberler” neredeyse her zaman bir kurulumdur.",
+      "linkPlusUrgency": "Bir bağlantı gönderip hızla tıklamanız için baskı yaptılar. Bağlantı + aciliyet klasik bir oltalama örüntüsüdür.",
+      "idPhotos": "Kimlik veya pasaport fotoğrafı istediler. Bunlar kimlik hırsızlığı için kullanılabilir. Sadece doğrulanmış, resmi kanallar üzerinden paylaşın.",
+      "patternPayFee": "Anlattıklarınız “para almak için ücret öde” örüntüsüyle eşleşiyor. Vaat edilen para asla gelmez — “ücret”in kendisi dolandırıcılıktır.",
+      "patternBank": "Anlattıklarınız “sahte banka veya güvenlik araması” örüntüsüyle eşleşiyor. Gerçek bankalar hesabı kendi taraflarında bloke eder — para taşımanızı veya kod paylaşmanızı istemezler."
+    },
+    "actions": {
+      "doNotSend": "Para göndermeyin. Banka bilgisi, parola veya güvenlik kodu paylaşmayın.",
+      "doNotInstall": "Önerdikleri hiçbir uygulamayı yüklemeyin ve onlardan gelen bağlantılara tıklamayın.",
+      "askTrusted": "Durun ve bir şey yapmadan önce güvendiğiniz bir kişiyle konuşun.",
+      "verifyOfficial": "Resmi bir kaynaktan doğrulayın — şirketin gerçek web sitesinden veya kendi bulduğunuz bir telefon numarasından, asla onların verdiği numaradan değil.",
+      "callBank": "Banka bilgisi paylaştıysanız, para gönderdiyseniz veya uygulama yüklediyseniz: hemen bankanızı arayın, kartları dondurun. Sonra parolaları değiştirin.",
+      "reportLocal": "Yerel polise veya ulusal tüketici / dolandırıcılık ihbar hattına bildirin.",
+      "blockNumber": "Numarayı veya hesabı engelleyin ve iletişimi sürdürmeyin. Farklı bir senaryoyla tekrar denerler."
+    },
+    "shareTitle": "Özeti güvendiğiniz birine gönderin",
+    "shareBody": "Çoğu dolandırıcılığı durduran şey ikinci bir gözdür. Tek dokunuş.",
+    "shareIntro": "Selam, bir şey yapmadan önce şuna birlikte bakar mıyız?",
+    "shareMessageLabel": "Bana gelen:",
+    "shareReasonsLabel": "Dolandırıcılık kontrolü şunları işaretledi:",
+    "shareCloseQuestion": "Para göndermeden veya bilgi paylaşmadan önce benimle birlikte bakar mısın?",
+    "shareWhatsapp": "WhatsApp",
+    "shareSms": "SMS",
+    "shareEmail": "E-posta",
+    "shareCopy": "Kopyala",
+    "shareCopied": "Kopyalandı",
+    "shareNative": "Paylaş…",
+    "shareEmailSubject": "Kısa bir kontrol — bu sana dolandırıcılık gibi mi görünüyor?"
+  },
+  "scams": {
+    "eyebrow": "Dolandırıcılık rehberi merkezi",
+    "h1Pre": "Aynı senaryolar,",
+    "h1Accent": "tekrar tekrar.",
+    "subhead": "On bir sade rehber. Dolandırıcılar adları, numaraları, hikâyeleri değiştirir. Yapı neredeyse hiç değişmez. Şekli bir kez gördükten sonra artık gözden kaçırmazsınız.",
+    "allGuidesEyebrow": "Tüm dolandırıcılık rehberleri",
+    "allGuidesTitle": "Her dolandırıcılık için tek sayfa — gerçek bir örnek, sinyaller ve ne yapılmalı.",
+    "finalCtaTitle": "Tanıdık bir şey mi gördünüz?",
+    "finalCtaAccent": "Kontrolü yapın.",
+    "finalCtaBody": "Aldığınız mesajı yapıştırın. Hangi örüntülerin eşleştiğini ve bir şey göndermeden önce ne yapmanız gerektiğini söyleriz."
+  },
+  "about": {
+    "eyebrow": "Hakkında",
+    "h1Pre": "Para hesabı terk etmeden önce",
+    "h1Accent": "sakin bir ikinci görüş.",
+    "intro": "Don't Pay Yet, güvenlik öncelikli bir dolandırıcılık kontrol aracıdır. Her şeyi bildiğimizi iddia etmiyoruz. Anlattıklarınızdaki uyarı sinyallerini gösterir ve harekete geçmeden önce neyi doğrulamanız gerektiğini söyleriz. Hiçbir şeye asla “güvenli” demeyiz.",
+    "principlesEyebrow": "Buna nasıl bakıyoruz",
+    "principleOneTitle": "Önce durun, her zaman doğrulayın.",
+    "principleOneBody": "Her dolandırıcılık hıza dayanır. İki dakikalığına yavaşlamak yapabileceğiniz en güçlü tek şeydir.",
+    "principleTwoTitle": "Sade dil, asla jargon değil.",
+    "principleTwoBody": "Buradaki bir cümle sizi kötü hissettiriyorsa, sorun cümlededir. İnsani hissettirene kadar yeniden yazarız.",
+    "principleThreeTitle": "Güvendiğiniz bir kişiyle konuşun.",
+    "principleThreeBody": "Çoğu dolandırıcılık, biri yüksek sesle başka birine söylediği anda çöker. Sonucu paylaşmayı tek dokunuş hâline getirdik.",
+    "recoveryEyebrow": "Para hesabınızdan çıktıysa",
+    "recoveryIntro": "Hızlı ama dikkatli hareket edin. Bazen havaleyi durdurmak veya hasarı sınırlamak için bir pencere vardır.",
+    "recoveryStep1": "Hemen bankanızı arayın. Kartları dondurun. Havalenin geri çağrılmasını isteyin.",
+    "recoveryStep2": "E-posta dahil, dokundukları her hesabın parolasını değiştirin. İki aşamalı doğrulamayı açın.",
+    "recoveryStep3": "Yerel polise ve ulusal tüketici koruma ya da dolandırıcılık ihbar hattına bildirin.",
+    "recoveryStep4": "Ücret karşılığında paranızı “kurtaracağını” vaat eden hiç kimseye ödeme yapmayın. O ayrı bir dolandırıcılıktır.",
+    "creditEyebrow": "Bunu kim yaptı",
+    "creditBody": "Don't Pay Yet, {builtBy} tarafından tasarlanıp geliştirildi, {poweredBy} ile güçlendirildi. Sizi takip etmiyoruz. Reklam göstermiyoruz. Kontrol cihazınızda çalışır — anlatımınız cihazdan asla çıkmaz."
+  },
+  "languageSwitcher": {
+    "label": "Dil",
+    "current": "Mevcut dil: {language}",
+    "switchTo": "{language} diline geç"
+  },
+  "disclaimer": {
+    "title": "Devam etmeden önce",
+    "body": "Bu bir ikinci görüştür, karar değildir. Bir mesajın güvenli olduğunu asla söylemeyiz. Gördüğünüz bir şey buradakilerle eşleşiyorsa, para göndermeden veya kod paylaşmadan önce yavaşlayın ve doğrulayın."
+  },
+  "guides": {
+    "common": {
+      "exampleTitle": "Bu örüntüye uyan örnek bir mesaj",
+      "exampleNote": "Açıklama amacıyla hazırlandı. Gerçekleri buna neredeyse aynı görünür.",
+      "plainTitle": "Bu dolandırıcılık sade dille",
+      "redFlagsTitle": "Uyarı sinyalleri",
+      "redFlagsIntro": "Bunlardan iki veya daha fazlası aynı anda görünüyorsa yavaşlayın.",
+      "whatToDoTitle": "Şimdi ne yapmalı",
+      "whatToDoIntro": "Önümüzdeki iki dakikada atabileceğiniz sakin adımlar.",
+      "dontTitle": "Yapmayın",
+      "doTitle": "Yapın",
+      "shareTitle": "Bu uyarıyı birine gönderin",
+      "shareBody": "Tek dokunuş — özeti, hedef olabilecek bir arkadaşa veya aile üyesine gönderin.",
+      "relatedTitle": "İlgili rehberler",
+      "relatedIntro": "Aynı senaryo, farklı bahane.",
+      "ctaTitle": "Hâlâ emin değil misiniz?",
+      "ctaAccent": "Cevap vermeden önce mesajı kontrol edin.",
+      "ctaBody": "Aldığınız mesajı yapıştırın. Sinyalleri gösterir, cevap vermeden, tıklamadan veya bir şey göndermeden önce neyi doğrulamanız gerektiğini söyleriz.",
+      "ctaPrimary": "Mesajınızı kontrol edin",
+      "ctaSecondary": "Tüm dolandırıcılıklara göz atın",
+      "back": "← Tüm dolandırıcılık rehberleri",
+      "exampleSender": "Gönderen",
+      "exampleTimestamp": "{time} alındı"
+    }
+  }
+}

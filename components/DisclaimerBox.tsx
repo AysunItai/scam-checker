@@ -1,4 +1,7 @@
+import { useTranslations } from "next-intl";
+
 export function DisclaimerBox({ className = "" }: { className?: string }) {
+  const t = useTranslations("disclaimer");
   return (
     <aside
       className={`rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface-2)] p-5 text-sm leading-6 text-[color:var(--muted)] ${className}`}
@@ -15,12 +18,8 @@ export function DisclaimerBox({ className = "" }: { className?: string }) {
           </svg>
         </span>
         <div>
-          <p className="text-[color:var(--foreground)] font-medium">A note before you start</p>
-          <p className="mt-1">
-            This is a guide, not a guarantee. We will never tell you a message is safe — only
-            whether it shows warning signs. When in doubt, contact the official company or
-            bank directly using their printed phone number, and ask one trusted person.
-          </p>
+          <p className="text-[color:var(--foreground)] font-medium">{t("title")}</p>
+          <p className="mt-1">{t("body")}</p>
         </div>
       </div>
     </aside>

@@ -43,16 +43,58 @@ export interface CheckInput {
   promise: Promise | null;
 }
 
+/**
+ * Translation keys (NOT raw strings) returned by the risk engine.
+ *
+ * Why keys?  Safety-critical wording must stay 100% under our control. The
+ * engine signals which reason / action applies; the UI looks up the localized
+ * string from `messages/<locale>.json` — never machine-translated at runtime.
+ */
+export type ReasonKey =
+  | "payFirst"
+  | "otpRequest"
+  | "giftcards"
+  | "crypto"
+  | "remoteApp"
+  | "secret"
+  | "urgent"
+  | "bankCredentials"
+  | "unexpectedMoney"
+  | "linkPlusUrgency"
+  | "idPhotos"
+  | "patternPayFee"
+  | "patternBank";
+
+export type ActionKey =
+  | "doNotSend"
+  | "doNotInstall"
+  | "askTrusted"
+  | "verifyOfficial"
+  | "callBank"
+  | "reportLocal"
+  | "blockNumber";
+
+/**
+ * The known scam guide slug a result was matched against (if any). Used to
+ * deep-link the user to the relevant /<slug> guide. Kept as a string union of
+ * existing guide slugs.
+ */
+export type MatchedGuideSlug =
+  | "pay-fee-to-receive-money-scam"
+  | "money-waiting-scam"
+  | "fake-bank-call"
+  | "otp-code-scam"
+  | "whatsapp-scam"
+  | "package-delivery-fee-scam"
+  | "fake-job-task-scam"
+  | "romance-money-scam"
+  | "facebook-marketplace-scam"
+  | "crypto-recovery-scam";
+
 export interface CheckResult {
   level: RiskLevel;
   score: number;
-  title: string;
-  summary: string;
-  reasons: string[];
-  whatToDo: string[];
-  matchedPattern?: {
-    id: string;
-    label: string;
-    href: string;
-  };
+  reasonKeys: ReasonKey[];
+  actionKeys: ActionKey[];
+  matchedGuideSlug?: MatchedGuideSlug;
 }

@@ -1,7 +1,9 @@
-import Link from "next/link";
-import type { ScamGuide } from "@/lib/scamGuides";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
+import type { Guide } from "@/lib/guides";
 
-export function RelatedGuides({ guides }: { guides: ScamGuide[] }) {
+export function RelatedGuides({ guides }: { guides: Guide[] }) {
+  const tCommon = useTranslations("common");
   if (guides.length === 0) return null;
   return (
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -9,6 +11,7 @@ export function RelatedGuides({ guides }: { guides: ScamGuide[] }) {
         <Link
           key={g.slug}
           href={`/${g.slug}`}
+          aria-label={`${tCommon("readGuide")}: ${g.category}`}
           className="card group h-full block transition-transform hover:-translate-y-0.5"
         >
           <p className="text-xs uppercase tracking-[0.14em] text-[color:var(--muted-2)]">
@@ -21,7 +24,7 @@ export function RelatedGuides({ guides }: { guides: ScamGuide[] }) {
             {g.subhead}
           </p>
           <span className="mt-4 inline-flex items-center gap-1.5 text-sm text-[color:var(--foreground)]">
-            Read the guide
+            {tCommon("readGuide")}
             <svg
               width="14"
               height="14"
@@ -31,7 +34,7 @@ export function RelatedGuides({ guides }: { guides: ScamGuide[] }) {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="transition-transform group-hover:translate-x-0.5"
+              className="transition-transform group-hover:translate-x-0.5 rtl:rotate-180"
               aria-hidden
             >
               <path d="M5 12h14" />

@@ -1,23 +1,27 @@
 import { ImageResponse } from "next/og";
 import { OgFrame } from "@/components/og/OgFrame";
-import { allGuideSlugs, getGuide } from "@/lib/scamGuides";
+import { allGuideSlugs, isScamGuideSlug } from "@/lib/scamGuides";
+import { resolveGuide } from "@/lib/guides";
+import { routing, type Locale } from "@/i18n/routing";
 
 export const alt = "Scam guide";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export function generateStaticParams() {
-  return allGuideSlugs().map((guide) => ({ guide }));
+  const slugs = allGuideSlugs();
+  return routing.locales.flatMap((locale) =>
+    slugs.map((guide) => ({ locale, guide })),
+  );
 }
 
 export default async function Image({
   params,
 }: {
-  params: Promise<{ guide: string }>;
+  params: Promise<{ locale: string; guide: string }>;
 }) {
-  const { guide } = await params;
-  const g = getGuide(guide);
-  if (!g) {
+  const { locale, guide } = await params;
+  if (!isScamGuideSlug(guide)) {
     return new ImageResponse(
       (
         <OgFrame
@@ -29,6 +33,11 @@ export default async function Image({
     );
   }
 
+  const safeLocale = (routing.locales as readonly string[]).includes(locale)
+    ? (locale as Locale)
+    : routing.defaultLocale;
+
+  const g = resolveGuide(guide, safeLocale);
   const headline = trimToTwoLines(g.h1);
   const accent = g.severity === "sus" ? "warm" : "red";
 
@@ -46,7 +55,6 @@ export default async function Image({
 }
 
 function trimToTwoLines(s: string): string {
-  // OG art doesn't truncate text gracefully; soft cap.
   if (s.length <= 70) return s;
   return s.slice(0, 67).trimEnd() + "…";
 }

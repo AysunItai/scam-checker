@@ -1,11 +1,15 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
+import { useTranslations } from "next-intl";
+import { useRouter } from "@/i18n/navigation";
 import {
-  ASKED_FOR_OPTIONS,
-  CHANNEL_OPTIONS,
-  PROMISE_OPTIONS,
+  ASKED_FOR_KEY,
+  ASKED_FOR_VALUES,
+  CHANNEL_KEY,
+  CHANNEL_VALUES,
+  PROMISE_KEY,
+  PROMISE_VALUES,
 } from "@/lib/options";
 import type {
   AskedFor,
@@ -15,15 +19,15 @@ import type {
 } from "@/lib/types";
 
 const STORAGE_KEY = "scam_check_input";
-
-const STEP_LABELS = [
-  "What happened",
-  "How they contacted you",
-  "What they asked for",
-  "What they promised",
-];
+const STEP_COUNT = 4;
 
 export function ScamCheckForm() {
+  const t = useTranslations("check");
+  const tChannels = useTranslations("check.channels");
+  const tAsked = useTranslations("check.askedFor");
+  const tPromises = useTranslations("check.promises");
+  const tCommon = useTranslations("common");
+
   const router = useRouter();
   const [step, setStep] = useState(0);
   const [description, setDescription] = useState("");
@@ -47,7 +51,7 @@ export function ScamCheckForm() {
     }
   }, []);
 
-  const progress = useMemo(() => ((step + 1) / STEP_LABELS.length) * 100, [step]);
+  const progress = useMemo(() => ((step + 1) / STEP_COUNT) * 100, [step]);
 
   const canContinue = useMemo(() => {
     if (step === 0) return description.trim().length > 4;
@@ -65,7 +69,7 @@ export function ScamCheckForm() {
 
   function next() {
     if (!canContinue) return;
-    if (step < STEP_LABELS.length - 1) setStep(step + 1);
+    if (step < STEP_COUNT - 1) setStep(step + 1);
     else submit();
   }
 
@@ -92,13 +96,9 @@ export function ScamCheckForm() {
 
   return (
     <div className="form-card relative">
-      {/* progress */}
       <div className="mb-6">
         <div className="flex items-center justify-between text-xs uppercase tracking-[0.14em] text-[color:var(--muted-2)]">
-          <span>
-            Step {step + 1} / {STEP_LABELS.length}
-          </span>
-          <span>{STEP_LABELS[step]}</span>
+          <span>{t("step", { current: step + 1, total: STEP_COUNT })}</span>
         </div>
         <div className="mt-2 h-[2px] w-full overflow-hidden rounded-full bg-[color:var(--border)]">
           <div
@@ -109,37 +109,37 @@ export function ScamCheckForm() {
       </div>
 
       {step === 0 && (
-        <Step title="What happened?" hint="Paste the message or describe the call in your own words. The more detail, the better.">
+        <Step title={t("q1Title")} hint={t("q1Hint")}>
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             rows={6}
-            placeholder="Example: Someone called me from a Turkish number and said I have 4,200 euros in social insurance waiting. But first I need to send 200 euros as a processing fee. They said I shouldn't tell my family."
+            placeholder={t("q1Placeholder")}
             className="input-base"
             autoFocus
           />
           <p className="mt-2 text-xs text-[color:var(--muted-2)]">
-            We don't store this. Everything stays in your browser.
+            {t("trustChips.private")}
           </p>
         </Step>
       )}
 
       {step === 1 && (
-        <Step title="How did they contact you?" hint="Pick the closest one.">
+        <Step title={t("q2Title")}>
           <div className="grid gap-2 sm:grid-cols-2">
-            {CHANNEL_OPTIONS.map((o) => {
-              const selected = channel === o.value;
+            {CHANNEL_VALUES.map((value) => {
+              const selected = channel === value;
               return (
                 <button
-                  key={o.value}
+                  key={value}
                   type="button"
                   className="option"
                   data-selected={selected}
                   aria-pressed={selected}
-                  onClick={() => setChannel(o.value)}
+                  onClick={() => setChannel(value)}
                 >
                   <span className="dot" />
-                  <span>{o.label}</span>
+                  <span>{tChannels(CHANNEL_KEY[value])}</span>
                 </button>
               );
             })}
@@ -148,16 +148,13 @@ export function ScamCheckForm() {
       )}
 
       {step === 2 && (
-        <Step
-          title="Did they ask for any of these?"
-          hint="Check everything that applies. You can skip if none apply."
-        >
+        <Step title={t("q3Title")} hint={t("q3Hint")}>
           <div className="grid gap-2 sm:grid-cols-2">
-            {ASKED_FOR_OPTIONS.map((o) => {
-              const checked = askedFor.includes(o.value);
+            {ASKED_FOR_VALUES.map((value) => {
+              const checked = askedFor.includes(value);
               return (
                 <label
-                  key={o.value}
+                  key={value}
                   className="check-tile"
                   data-checked={checked}
                 >
@@ -181,9 +178,9 @@ export function ScamCheckForm() {
                     type="checkbox"
                     className="sr-only"
                     checked={checked}
-                    onChange={() => toggleAskedFor(o.value)}
+                    onChange={() => toggleAskedFor(value)}
                   />
-                  <span>{o.label}</span>
+                  <span>{tAsked(ASKED_FOR_KEY[value])}</span>
                 </label>
               );
             })}
@@ -192,24 +189,21 @@ export function ScamCheckForm() {
       )}
 
       {step === 3 && (
-        <Step
-          title="What are they promising you?"
-          hint="The closest fit is enough."
-        >
+        <Step title={t("q4Title")}>
           <div className="grid gap-2 sm:grid-cols-2">
-            {PROMISE_OPTIONS.map((o) => {
-              const selected = promise === o.value;
+            {PROMISE_VALUES.map((value) => {
+              const selected = promise === value;
               return (
                 <button
-                  key={o.value}
+                  key={value}
                   type="button"
                   className="option"
                   data-selected={selected}
                   aria-pressed={selected}
-                  onClick={() => setPromise(o.value)}
+                  onClick={() => setPromise(value)}
                 >
                   <span className="dot" />
-                  <span>{o.label}</span>
+                  <span>{tPromises(PROMISE_KEY[value])}</span>
                 </button>
               );
             })}
@@ -224,11 +218,22 @@ export function ScamCheckForm() {
           disabled={step === 0}
           className="btn-ghost disabled:opacity-40 disabled:cursor-not-allowed"
         >
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden
+            className="rtl:rotate-180"
+          >
             <path d="M19 12H5" />
             <path d="m12 19-7-7 7-7" />
           </svg>
-          Back
+          {tCommon("back")}
         </button>
         <button
           type="button"
@@ -236,8 +241,23 @@ export function ScamCheckForm() {
           disabled={!canContinue || submitting}
           className="btn-primary disabled:opacity-40 disabled:cursor-not-allowed"
         >
-          {step === STEP_LABELS.length - 1 ? (submitting ? "Checking…" : "Check risk") : "Continue"}
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+          {step === STEP_COUNT - 1
+            ? submitting
+              ? t("submitting")
+              : t("submit")
+            : tCommon("next")}
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden
+            className="rtl:rotate-180"
+          >
             <path d="M5 12h14" />
             <path d="m12 5 7 7-7 7" />
           </svg>
@@ -259,9 +279,7 @@ function Step({
   return (
     <div className="animate-[fadein_400ms_ease-out] [--tw-enter-translate-y:8px]">
       <h2 className="text-xl sm:text-2xl font-medium tracking-tight">{title}</h2>
-      {hint && (
-        <p className="mt-1.5 text-sm text-[color:var(--muted)]">{hint}</p>
-      )}
+      {hint && <p className="mt-1.5 text-sm text-[color:var(--muted)]">{hint}</p>}
       <div className="mt-5">{children}</div>
     </div>
   );

@@ -1,3 +1,5 @@
+import { useTranslations } from "next-intl";
+
 export function WhatToDoNow({
   dont,
   doList,
@@ -5,18 +7,11 @@ export function WhatToDoNow({
   dont: string[];
   doList: string[];
 }) {
+  const t = useTranslations("guides.common");
   return (
     <div className="grid gap-4 md:grid-cols-2">
-      <Column
-        eyebrow="Don't do this"
-        tone="danger"
-        items={dont}
-      />
-      <Column
-        eyebrow="Do this instead"
-        tone="verify"
-        items={doList}
-      />
+      <Column eyebrow={t("dontTitle")} tone="danger" items={dont} />
+      <Column eyebrow={t("doTitle")} tone="verify" items={doList} />
     </div>
   );
 }

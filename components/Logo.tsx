@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 export function Logo({
   className = "",
@@ -7,10 +8,11 @@ export function Logo({
   className?: string;
   withWordmark?: boolean;
 }) {
+  const t = useTranslations("meta");
   return (
     <Link
       href="/"
-      aria-label="Is this a scam? — home"
+      aria-label={`${t("siteName")} — home`}
       className={`group inline-flex items-center gap-2 ${className}`}
     >
       <span className="relative inline-flex h-7 w-7 items-center justify-center rounded-full border border-[color:var(--border-strong)] bg-[color:var(--surface)]">
@@ -19,7 +21,7 @@ export function Logo({
       </span>
       {withWordmark && (
         <span className="text-[15px] font-medium tracking-tight">
-          is this a <span className="font-serif-display text-[17px]">scam</span>?
+          Don&apos;t Pay <span className="font-serif-display text-[17px]">Yet</span>
         </span>
       )}
     </Link>

@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { Reveal } from "@/components/Reveal";
 import { ScamGuideHero } from "./ScamGuideHero";
 import { ExampleMessageCard } from "./ExampleMessageCard";
@@ -7,10 +8,18 @@ import { WhatToDoNow } from "./WhatToDoNow";
 import { GuideShareButton } from "./GuideShareButton";
 import { RelatedGuides } from "./RelatedGuides";
 import { CtaBlock } from "./CtaBlock";
-import { getRelatedGuides, type ScamGuide } from "@/lib/scamGuides";
+import type { Guide } from "@/lib/guides";
 
-export function ScamGuidePage({ guide }: { guide: ScamGuide }) {
-  const related = getRelatedGuides(guide.slug);
+export function ScamGuidePage({
+  guide,
+  related,
+}: {
+  guide: Guide;
+  related: Guide[];
+}) {
+  const t = useTranslations("guides.common");
+  const tCommon = useTranslations("common");
+  const tResult = useTranslations("result");
 
   return (
     <article className="relative">
@@ -20,15 +29,15 @@ export function ScamGuidePage({ guide }: { guide: ScamGuide }) {
       <section className="relative">
         <div className="mx-auto max-w-5xl px-5 sm:px-8 py-14 sm:py-20 grid gap-10 lg:grid-cols-[1.05fr_1fr] lg:items-start">
           <Reveal>
-            <ExampleMessageCard example={guide.example} />
+            <ExampleMessageCard
+              example={guide.example}
+              channel={guide.channel}
+            />
           </Reveal>
           <Reveal delay={120}>
             <div>
-              <p className="text-xs uppercase tracking-[0.18em] text-[color:var(--muted-2)]">
-                What this scam really is
-              </p>
-              <h2 className="mt-3 text-[26px] sm:text-3xl md:text-4xl tracking-tight font-medium leading-[1.12]">
-                In plain words.
+              <h2 className="text-[26px] sm:text-3xl md:text-4xl tracking-tight font-medium leading-[1.12]">
+                {t("plainTitle")}
               </h2>
               <div className="mt-5 space-y-4 text-[16px] sm:text-[17px] leading-8 text-[color:var(--foreground)] break-anywhere">
                 {guide.plain.map((para, i) => (
@@ -47,15 +56,11 @@ export function ScamGuidePage({ guide }: { guide: ScamGuide }) {
             <Reveal>
               <div>
                 <p className="text-xs uppercase tracking-[0.18em] text-[color:var(--muted-2)]">
-                  Red flags
+                  {t("redFlagsTitle")}
                 </p>
                 <h2 className="mt-3 text-[26px] sm:text-3xl md:text-4xl tracking-tight font-medium leading-[1.12]">
-                  Warning signs to take seriously.
+                  {t("redFlagsIntro")}
                 </h2>
-                <p className="mt-4 text-[15px] leading-7 text-[color:var(--muted)] max-w-md">
-                  Any one of these on its own should make you pause. Two or
-                  more, and you should stop and check before doing anything.
-                </p>
               </div>
             </Reveal>
             <Reveal delay={120}>
@@ -70,12 +75,12 @@ export function ScamGuidePage({ guide }: { guide: ScamGuide }) {
         <div className="mx-auto max-w-5xl px-5 sm:px-8 py-16 sm:py-20">
           <Reveal>
             <p className="text-xs uppercase tracking-[0.18em] text-[color:var(--muted-2)]">
-              What to do now
+              {t("whatToDoTitle")}
             </p>
           </Reveal>
           <Reveal delay={80}>
             <h2 className="mt-3 text-[26px] sm:text-3xl md:text-4xl tracking-tight font-medium leading-[1.12]">
-              Two short lists. That&apos;s the whole defence.
+              {t("whatToDoIntro")}
             </h2>
           </Reveal>
           <Reveal delay={140}>
@@ -93,11 +98,9 @@ export function ScamGuidePage({ guide }: { guide: ScamGuide }) {
               className="mt-8 rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface-2)] p-5 text-[15px] leading-7 text-[color:var(--muted)] max-w-3xl"
             >
               <strong className="text-[color:var(--foreground)] font-medium">
-                Important:
+                {tResult("reminderTitle")}
               </strong>{" "}
-              we never tell you a message is &quot;safe&quot;. Even a lower-risk
-              result is not a green light to send money or share codes. When in
-              doubt — verify with the official source.
+              {tResult("reminderBody")}
             </p>
           </Reveal>
         </div>
@@ -120,12 +123,12 @@ export function ScamGuidePage({ guide }: { guide: ScamGuide }) {
               <div>
                 <Reveal>
                   <p className="text-xs uppercase tracking-[0.18em] text-[color:var(--muted-2)]">
-                    Related scams
+                    {t("relatedTitle")}
                   </p>
                 </Reveal>
                 <Reveal delay={80}>
                   <h2 className="mt-3 text-[26px] sm:text-3xl md:text-4xl tracking-tight font-medium leading-[1.12]">
-                    More patterns worth recognising.
+                    {t("relatedIntro")}
                   </h2>
                 </Reveal>
               </div>
@@ -134,7 +137,7 @@ export function ScamGuidePage({ guide }: { guide: ScamGuide }) {
                   href="/scams"
                   className="link-anim text-sm text-[color:var(--foreground)]"
                 >
-                  See all guides →
+                  {tCommon("viewAllGuides")} →
                 </Link>
               </Reveal>
             </div>
